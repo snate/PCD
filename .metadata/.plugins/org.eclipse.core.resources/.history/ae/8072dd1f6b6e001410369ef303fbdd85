@@ -1,0 +1,29 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+
+/**
+ * @author svalle
+ *
+ */
+public class Puzzle implements Clump {
+	private int rows;
+	private int cols;
+	private ArrayList<Piece> lista = new ArrayList<Piece>();
+	
+	@Override
+	public Piece getPiece(String id) {
+		Iterator<Piece> it = lista.iterator();
+		while(it.hasNext()) {
+			Piece current = it.next();
+			if(current.getId()==id)
+				return current;
+		}
+		return null;
+	}
+	
+	public void 
+	
+	public void write(String path) {
+		
+	}
+}

@@ -1,0 +1,11 @@
+/**
+ * 
+ */
+
+/**
+ * @author svalle
+ *
+ */
+public interface Block {
+
+}

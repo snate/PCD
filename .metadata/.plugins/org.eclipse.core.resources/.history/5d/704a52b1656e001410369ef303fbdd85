@@ -1,0 +1,14 @@
+/**
+ * @author svalle
+ */
+public class PuzzleSolver {
+
+	/**
+	 * @param {string} stream - Input and output file paths
+	 */
+	public static void main(String[] args) {
+		String pathIn = args[0];
+		String pathOut = args[1];
+	}
+
+}

@@ -1,0 +1,15 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+
+/**
+ * @author svalle
+ */
+public class Heap implements Clump {
+	private ArrayList<Piece> lista = new ArrayList<Piece>();
+	
+	public Piece getPiece(String id) {
+		Iterator it = lista.iterator();
+		while() {}
+		return null;
+	}
+}

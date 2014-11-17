@@ -1,0 +1,7 @@
+/**
+ * Questa interfaccia rappresenta gli insiemi di tasselli del puzzle
+ * @author svalle
+ */
+public interface Cluster {
+
+}

@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+
+/**
+ * @author svalle
+ *
+ */
+public interface Block {
+	String getId();
+	String getNorth();
+}

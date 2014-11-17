@@ -1,0 +1,7 @@
+/**
+ * @author svalle
+ *
+ */
+public interface Clump {
+	public Piece getPiece();
+}

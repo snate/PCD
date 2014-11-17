@@ -1,0 +1,40 @@
+/**
+ * Questa classe rappresenta un pezzo del puzzle senza riferimenti
+ * @author svalle
+ */
+public class SimplePiece implements Piece {
+	private String north;
+	private String south;
+	private String east;
+	private String west;
+	@Override
+	public String getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getNorth() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getSouth() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getWest() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getEast() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

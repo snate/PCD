@@ -1,0 +1,8 @@
+/**
+ * 
+ * @author svalle
+ *
+ */
+public interface Group {
+
+}
