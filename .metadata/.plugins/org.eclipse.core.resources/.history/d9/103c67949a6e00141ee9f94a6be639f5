@@ -1,0 +1,9 @@
+/**
+ * @author svalle
+ *
+ */
+public interface GruppoOrdinato {
+	public Piece getPiece(String id);
+	public void fill(Object item);
+	public void write(String path);
+}

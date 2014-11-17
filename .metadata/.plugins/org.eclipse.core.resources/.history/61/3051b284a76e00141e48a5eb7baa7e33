@@ -1,0 +1,16 @@
+
+public interface Piece {
+	public String getId();
+	public String getNorth();
+	public String getSouth();
+	public String getWest();
+	public String getEast();
+	public Piece getNorthRef();
+	public void setNorthRef(Piece p);
+	public Piece getSouthRef();
+	public void setSouthRef(Piece p);
+	public Piece getWestRef();
+	public void setWestRef(Piece p);
+	public Piece getEastRef();
+	public void setEastRef(Piece p);
+}

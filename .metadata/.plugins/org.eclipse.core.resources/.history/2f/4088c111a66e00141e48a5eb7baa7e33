@@ -1,0 +1,24 @@
+import java.nio.file.Path;
+
+
+public class Mucchio implements GruppoOrdinabile {
+
+	@Override
+	public void fill(Path path) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void sort() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void write(Path path) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

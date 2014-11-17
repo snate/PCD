@@ -1,4 +1,5 @@
-/**
+import java.nio.file.Path;
+import java.nio.file.Paths;/**
  * @author svalle
  */
 public class PuzzleSolver {
@@ -9,11 +10,12 @@ public class PuzzleSolver {
 	public static void main(String[] args) {
 		String pathIn = args[0];
 		String pathOut = args[1];
-		Clump h = new Heap();
-		h.fill(pathIn);
-		Clump p = new Puzzle();
-		p.fill(h);
-		
+		Path inputPath = Paths.get(pathIn);
+		Path outputPath = Paths.get(pathOut);
+		GruppoOrdinabile p = new Puzzle();
+		p.fill(inputPath);
+		p.sort();
+		p.write(outputPath);
 	}
 
 }

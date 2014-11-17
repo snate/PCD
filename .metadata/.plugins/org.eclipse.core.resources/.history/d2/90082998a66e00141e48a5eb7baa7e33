@@ -1,0 +1,16 @@
+
+public interface Piece {
+	public String getId()      { return id; }
+	public String getNorth()   { return north; }
+	public String getSouth()   { return south; }
+	public String getWest()    { return west; }
+	public String getEast()    { return east;	}
+	public Piece getNorthRef() { return northRef; }
+	public void setNorthRef(Piece p) {northRef = p;}
+	public Piece getSouthRef() { return southRef; }
+	public void setSouthRef(Piece p) {southRef = p;}
+	public Piece getWestRef()  { return westRef;  }
+	public void setWestRef(Piece p) {westRef = p;}
+	public Piece getEastRef()  { return eastRef;  }
+	public void setEastRef(Piece p) {eastRef = p;}
+}

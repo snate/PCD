@@ -1,0 +1,21 @@
+/**
+ * @author svalle
+ */
+public class PuzzleSolver {
+
+	/**
+	 * @param {string} stream - Path dei file di input e output
+	 */
+	public static void main(String[] args) {
+		Path inputPath = Paths.get(inputFile);
+		Path outputPath = Paths.get(outputFile);
+
+		String pathIn = args[0];
+		String pathOut = args[1];
+		GruppoOrdinato p = new Puzzle();
+		p.fill(pathIn);
+		p.sort();
+		
+	}
+
+}

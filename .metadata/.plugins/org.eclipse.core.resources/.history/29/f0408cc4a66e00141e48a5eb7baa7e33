@@ -1,0 +1,48 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+
+public class Mucchio implements GruppoOrdinabile {
+
+	private ArrayList<Piece> list;
+	private static Charset charset = StandardCharsets.UTF_8;
+	
+	private String convert(Path path){
+		StringBuilder content = new StringBuilder();
+		try (BufferedReader reader = Files.newBufferedReader(path,
+			charset)) {
+			String line = null;
+			while ((line = reader.readLine()) != null) {
+				content.append(line);
+			}
+		} catch (IOException e) {
+			System.err.println(e);
+		}
+		return content.toString();
+	}
+	
+	@Override
+	public void fill(Path path) {
+		// TODO Auto-generated method stub
+		String content = convert(path);
+	}
+
+	@Override
+	public void sort() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void write(Path path) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

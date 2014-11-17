@@ -1,0 +1,9 @@
+/**
+ * @author svalle
+ *
+ */
+public interface GruppoOrdinato {
+	public void fill(Path path);
+	public void sort();
+	public void write(String path);
+}
