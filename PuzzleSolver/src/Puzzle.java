@@ -15,7 +15,7 @@ public class Puzzle implements GruppoOrdinabile {
 	private int rows;
 	private int cols;
 	private static Charset charset = StandardCharsets.UTF_8;
-	private class Piece {
+	private static class Piece {
 		private String id;
 		private String north;
 		private String south;
