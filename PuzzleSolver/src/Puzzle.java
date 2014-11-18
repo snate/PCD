@@ -17,6 +17,7 @@ public class Puzzle implements GruppoOrdinabile {
 	private static Charset charset = StandardCharsets.UTF_8;
 	private static class Piece {
 		private String id;
+		private String car;
 		private String north;
 		private String south;
 		private String east;
@@ -26,6 +27,14 @@ public class Puzzle implements GruppoOrdinabile {
 		private Piece westRef;
 		private Piece eastRef;
 
+		public Piece(String[] str){
+			id = str[0];
+			car = str[1];
+			north = str[2];
+			south = str[3];
+			east = str[4];
+			west = str[5];
+		}
 		public String getId()      { return id; }
 		public String getNorth()   { return north; }
 		public String getSouth()   { return south; }
@@ -39,9 +48,10 @@ public class Puzzle implements GruppoOrdinabile {
 		public void setWestRef(Piece p) {westRef = p;}
 		public Piece getEastRef()  { return eastRef;  }
 		public void setEastRef(Piece p) {eastRef = p;}
+		public String toString() {return car;}
 	}
 
-	private ArrayList<Piece> mucchio;
+	private ArrayList<Piece> mucchio = new ArrayList<Piece>();
 	private Piece[][] puzzle;
 	
 	private Piece getPieceMucchio(String id){
@@ -75,7 +85,7 @@ public class Puzzle implements GruppoOrdinabile {
 			charset)) {
 			String line = null;
 			while ((line = reader.readLine()) != null) {
-				content.append(line);
+				content.append(line + "\n ");
 			}
 		} catch (IOException e) {
 			System.err.println(e);
@@ -86,7 +96,16 @@ public class Puzzle implements GruppoOrdinabile {
 	@Override
 	public void fill(Path path) {
 		String content = convert(path);
-		System.out.println(content);
+		String rows[] = content.split("\\n");
+		for(int i=0; i<rows.length-1; i++){
+			// -1 perchè l'ultimo è vuoto
+			String piece[] = rows[i].split("\\t");
+			Piece item = new Piece(piece);
+			mucchio.add(item);
+		}
+		Iterator<Piece> it = mucchio.iterator();
+		Piece item = it.next();
+		System.out.println(item);
 	}
 	
 	@Override
