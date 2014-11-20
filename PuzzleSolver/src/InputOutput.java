@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -9,21 +10,22 @@ import java.nio.file.Path;
 /**
  * @author svalle
  */
-class InputOutput { //visibilità package
+public class InputOutput { //visibilità package
 	private static Charset charset = StandardCharsets.UTF_8;
 	
-	public static String readContent(Path path){
-		StringBuilder content = new StringBuilder();
+	public static ArrayList<String> readContent(Path path){
+		ArrayList<String> content = new ArrayList<String>();
 		try (BufferedReader reader = Files.newBufferedReader(path,
 			charset)) {
 			String line = null;
 			while ((line = reader.readLine()) != null) {
-				content.append(line + "\n ");
+				content.add(line);
 			}
+			return content;
 		} catch (IOException e) {
 			System.err.println(e);
 		}
-	return content.toString();
+		return null;
 	}
 	
 	public static void writeContent(Path path, String content) {

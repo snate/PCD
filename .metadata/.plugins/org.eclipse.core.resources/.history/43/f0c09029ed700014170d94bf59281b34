@@ -1,0 +1,7 @@
+O1	O		N1	R1	
+N1	N		E1	E2	O1
+E1	E			P1	N1
+R1	R	O1	E2		
+E2	E	N1	P1		R1
+P1	P	E1			E2
+id_pezzo \t carattere \t id_nord \t id_est \t id_sud \t id_ovest
