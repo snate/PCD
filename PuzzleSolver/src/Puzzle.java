@@ -1,20 +1,21 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * @author svalle
  *
  */
 public class Puzzle implements GruppoOrdinabile {
-	private int rows;
-	private int cols;
-	private static Charset charset = StandardCharsets.UTF_8;
+	private int rows=0;
+	private int cols=0;
 	private static class Piece {
 		private String id;
 		private String car;
@@ -78,24 +79,14 @@ public class Puzzle implements GruppoOrdinabile {
 		}
 		return null;
 	}
-	
-	private String convert(Path path){
-		StringBuilder content = new StringBuilder();
-		try (BufferedReader reader = Files.newBufferedReader(path,
-			charset)) {
-			String line = null;
-			while ((line = reader.readLine()) != null) {
-				content.append(line + "\n ");
-			}
-		} catch (IOException e) {
-			System.err.println(e);
-		}
-		return content.toString();
+
+	private InputOutput io(){
+		return new InputOutput(){};
 	}
 	
 	@Override
 	public void fill(Path path) {
-		String content = convert(path);
+		String content = io().readContent(path);
 		String rows[] = content.split("\\n");
 		for(int i=0; i<rows.length-1; i++){
 			// -1 perchè l'ultimo è vuoto
@@ -104,17 +95,49 @@ public class Puzzle implements GruppoOrdinabile {
 			mucchio.add(item);
 		}
 		Iterator<Piece> it = mucchio.iterator();
-		Piece item = it.next();
-		System.out.println(item);
+		while(it.hasNext()){
+			Piece item = it.next();
+			System.out.println(item);
+		}
 	}
 	
 	@Override
 	public void sort() {
-		//fai cose
+		setDim();
+		puzzle = new Piece[rows][cols];
+		puzzle[0][0] = mucchio.get(0);
+		puzzle[0][1] = mucchio.get(1);
+	}
+	
+	private void setDim(){
+		Iterator<Piece> it = mucchio.iterator();
+		while(it.hasNext()){
+			Piece item = it.next();
+			if(item.getNorth()==null) cols++;
+			if(item.getWest()==null) rows++;
+		}
 	}
 	
 	@Override
 	public void write(Path path) {
-		//scrivi
+		String output = "";
+		
+		for(int i = 0; i < rows; i++)
+			for(int j = 0; j < cols; j++)
+				output += puzzle[i][j];
+		output += "\n\n";
+
+		for(int i = 0; i < rows; i++){
+			for(int j = 0; j < cols; j++){
+				output += puzzle[i][j];
+				if(j!=cols-1) output += "\t";
+			}
+			output+="\n";
+		}
+		output += "\n";
+
+		output += rows + " " + cols;
+		
+		io().writeContent(path, output);
 	}
 }

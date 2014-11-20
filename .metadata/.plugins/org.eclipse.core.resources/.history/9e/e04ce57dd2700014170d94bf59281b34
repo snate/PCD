@@ -1,0 +1,36 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+/**
+ * @author svalle
+ */
+public class InputOutput {
+	private static Charset charset = StandardCharsets.UTF_8;
+	
+	public String toString(Path path){
+		StringBuilder content = new StringBuilder();
+		try (BufferedReader reader = Files.newBufferedReader(path,
+			charset)) {
+			String line = null;
+			while ((line = reader.readLine()) != null) {
+				content.append(line + "\n ");
+			}
+		} catch (IOException e) {
+			System.err.println(e);
+		}
+	return content.toString();
+	}
+	
+	private static void writeContent(Path file, String content) {
+		try (BufferedWriter writer = Files.newBufferedWriter(file, charset)) {
+		writer.write(content);
+		} catch (IOException e) {
+		System.err.println(e);
+		}
+	}
+}
