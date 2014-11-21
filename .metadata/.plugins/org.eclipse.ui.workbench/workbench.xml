@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="20" version="2.0">
+<workbench progressCount="16" version="2.0">
 <workbenchAdvisor/>
 <window height="768" maximized="true" width="1024" x="0" y="24">
 <fastViewData fastViewLocation="1024"/>
@@ -32,37 +32,27 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
-<part id="2"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Puzzle.java" partName="Puzzle.java" path="/home/nate/Documenti/Univ/ProgrammazioneConcorrenteEDistribuita/XXXPROJECT/PCD/PuzzleSolver/src/Puzzle.java" title="Puzzle.java" tooltip="PuzzleSolver/src/Puzzle.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Puzzle.java" partName="Puzzle.java" path="/home/nate/Documenti/Univ/ProgrammazioneConcorrenteEDistribuita/XXXPROJECT/PCD/PuzzleSolver/src/Puzzle.java" title="Puzzle.java" tooltip="PuzzleSolver/src/Puzzle.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/PuzzleSolver/src/Puzzle.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5505" selectionTopPixel="2802"/>
+<editorState selectionHorizontalPixel="0" selectionLength="11" selectionOffset="4563" selectionTopPixel="2087"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.ui.DefaultTextEditor" name="pippo.txt" partName="pippo.txt" path="/home/nate/Documenti/Univ/ProgrammazioneConcorrenteEDistribuita/XXXPROJECT/PCD/PuzzleSolver/pippo.txt" title="pippo.txt" tooltip="PuzzleSolver/pippo.txt" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.ui.DefaultTextEditor" name="pippo.txt" partName="pippo.txt" path="/home/nate/Documenti/Univ/ProgrammazioneConcorrenteEDistribuita/XXXPROJECT/PCD/PuzzleSolver/pippo.txt" title="pippo.txt" tooltip="PuzzleSolver/pippo.txt" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/PuzzleSolver/pippo.txt"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="175" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.ui.DefaultTextEditor" name="topolino.txt" partName="topolino.txt" path="/home/nate/Documenti/Univ/ProgrammazioneConcorrenteEDistribuita/XXXPROJECT/PCD/PuzzleSolver/topolino.txt" title="topolino.txt" tooltip="PuzzleSolver/topolino.txt" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/PuzzleSolver/topolino.txt"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
 <view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
 <viewState CommonNavigator.LINKING_ENABLED="0" org.eclipse.cdt.ui.cview.groupincludes="false" org.eclipse.cdt.ui.cview.groupmacros="false" org.eclipse.cdt.ui.editor.CUChildren="true" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
 </view>
-<view id="org.eclipse.debug.ui.DebugView" partName="Debug">
-<viewState/>
-</view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (15 items)"/>
 <category IMemento.internal.id="Errors"/>
-<category IMemento.internal.id="Warnings"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="485" org.eclipse.ui.ide.pathField="140" org.eclipse.ui.ide.resourceField="105" org.eclipse.ui.ide.severityAndDescriptionField="350"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -71,6 +61,9 @@
 <visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
 </viewState>
+</view>
+<view id="org.eclipse.debug.ui.DebugView" partName="Debug">
+<viewState/>
 </view>
 <view id="org.eclipse.ui.console.ConsoleView" partName="Console">
 <viewState/>
@@ -128,7 +121,7 @@
 </view>
 <view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
 </views>
-<perspectives activePart="org.eclipse.ui.DefaultTextEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.ui.internal.ide.application.ResourcePerspective" id="org.eclipse.ui.resourcePerspective" label="Resource"/>
 <alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
@@ -281,7 +274,7 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.15578948" ratioLeft="148" ratioRight="802" relationship="2" relative="left"/>
 <info folder="true" part="bottom" ratio="0.74967235" ratioLeft="572" ratioRight="191" relationship="4" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="0">
+<folder appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.JavadocView" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.SourceView" label="LabelNotFound"/>
@@ -394,48 +387,9 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/PuzzleSolver/src/Puzzle.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/PuzzleSolver/pippo.txt"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/PuzzleSolver/topolino.txt"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/PuzzleSolver/src/InputOutput.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/PuzzleSolver/src/Puzzle.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/PuzzleSolver/topolino.txt"/>
 </editors>
-<item historyLabel="Puzzle.java" index="0">
-<position info="not_deleted" x="313" y="0"/>
-</item>
-<item historyLabel="InputOutput.java" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Puzzle.java" index="0">
-<position info="not_deleted" x="807" y="0"/>
-</item>
-<item historyLabel="pippo.txt" index="1">
-<position info="not_deleted" x="5" y="0"/>
-</item>
-<item historyLabel="Puzzle.java" index="0">
-<position info="not_deleted" x="807" y="0"/>
-</item>
-<item historyLabel="pippo.txt" index="1">
-<position info="not_deleted" x="55" y="0"/>
-</item>
-<item historyLabel="Puzzle.java" index="0">
-<position info="not_deleted" x="807" y="0"/>
-</item>
-<item historyLabel="Puzzle.java" index="0">
-<position/>
-</item>
-<item historyLabel="Puzzle.java" index="0">
-<position info="not_deleted" x="2483" y="0"/>
-</item>
-<item historyLabel="topolino.txt" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="topolino.txt" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="pippo.txt" index="1">
-<position info="not_deleted" x="175" y="0"/>
-</item>
-<item historyLabel="Puzzle.java" index="0">
-<position info="not_deleted" x="2514" y="0"/>
-</item>
 <item historyLabel="Puzzle.java" index="0">
 <position info="not_deleted" x="3218" y="0"/>
 </item>
@@ -538,14 +492,53 @@
 <item historyLabel="Puzzle.java" index="0">
 <position info="not_deleted" x="5505" y="0"/>
 </item>
-<item historyLabel="topolino.txt" index="4">
+<item historyLabel="topolino.txt" index="2">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="topolino.txt" index="4">
+<item historyLabel="topolino.txt" index="2">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item active="true" historyLabel="pippo.txt" index="1">
+<item historyLabel="pippo.txt" index="1">
 <position info="not_deleted" x="175" y="0"/>
+</item>
+<item historyLabel="Puzzle.java" index="3">
+<position info="not_deleted" x="5340" y="0"/>
+</item>
+<item historyLabel="Puzzle.java" index="3">
+<position info="not_deleted" x="5253" y="0"/>
+</item>
+<item historyLabel="Puzzle.java" index="3">
+<position info="not_deleted" x="4350" y="0"/>
+</item>
+<item historyLabel="topolino.txt" index="4">
+<position/>
+</item>
+<item historyLabel="Puzzle.java" index="3">
+<position info="not_deleted" x="4335" y="0"/>
+</item>
+<item historyLabel="topolino.txt" index="4">
+<position/>
+</item>
+<item historyLabel="topolino.txt" index="4">
+<position/>
+</item>
+<item historyLabel="Puzzle.java" index="3">
+<position info="not_deleted" x="4563" y="11"/>
+</item>
+<item historyLabel="topolino.txt" index="4">
+<position/>
+</item>
+<item historyLabel="Puzzle.java" index="3">
+<position info="not_deleted" x="4563" y="11"/>
+</item>
+<item historyLabel="topolino.txt" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="topolino.txt" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item active="true" historyLabel="Puzzle.java" index="3">
+<position info="not_deleted" x="4563" y="11"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>

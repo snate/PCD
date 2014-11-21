@@ -120,9 +120,9 @@ public class Puzzle implements GruppoOrdinabile {
 			if(!mucchio.isEmpty()) southRef1 = sortPartial(rows-1-i,cols-1-i,i,"s",southRef1,southRef2);
 			System.out.println();
 			
-			Iterator<Piece> it = mucchio.iterator();
-			while(it.hasNext())
-				System.out.println(it.next());
+			for(int k=0;k<rows;k++)
+				for(int j=0;j<cols;j++)
+					System.out.print(puzzle[k][j] + " - ");
 			
 			System.out.print("\n++ EST: " + eastRef1 + " ++\n");
 			if(eastRef1 != null) eastRef2 = puzzle[i][cols-2-i].getId();
@@ -144,26 +144,24 @@ public class Puzzle implements GruppoOrdinabile {
 			break;
 		}
 		Iterator<Piece> it = mucchio.iterator();
-		int index = 0;
 		while(it.hasNext()){
 			Piece current = it.next();
 			String strSide = current.getAdjacent(side);
 			String strInit = current.getAdjacent(init);
-			System.out.print(strSide + " " + strInit + "\n");
-			if(strSide.isEmpty() && strInit.isEmpty()) {
-				if(ref1 == null && ref2 == null) {
-					mucchio.remove(index);
+			if(ref2 == null && ref1 == null 
+			  && strInit == null && strSide == null) {
+				System.out.print(current + "\n");
+				mucchio.remove(index);
+				return current;
+			}
+			else{
+				System.out.print(current);
+				if(ref1 != null && ref2 != null &&
+				 ref1.equals(strSide) && ref2.equals(strInit)) {
+					it.remove();
 					return current;
 				}
-			} else{
-				if(ref2 == null && ref1 == null){
-					&& strInit == null && strSide == null) {
-						mucchio.remove(index);
-						return current;
-					}
-				}
 			}
-			index++;
 		}
 		return null;
 	}
@@ -180,6 +178,7 @@ public class Puzzle implements GruppoOrdinabile {
 		if(side=="e" || side=="w")
 			limit = rows-iter-1;
 		Piece piece = getPiece(side,ref1,ref2);
+		System.out.print(piece);
 		puzzle[row][col] = piece;
 		String next = piece.getAdjacent(next(side));
 		for(int i = 1; i < limit; i++){
@@ -189,6 +188,7 @@ public class Puzzle implements GruppoOrdinabile {
 				piece = it.next();
 				if(next.equals(piece.getId())){
 					puzzle[row+i*mX][col+i*mY] = piece;
+					it.remove();
 					next = piece.getAdjacent(next(side));
 					found = true;
 				}

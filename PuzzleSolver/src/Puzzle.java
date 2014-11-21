@@ -85,7 +85,7 @@ public class Puzzle implements GruppoOrdinabile {
 	
 	private void sortX(){
 		if(rows == 1)
-			sortPartial(0,0,0,"n",null,null);
+			partialSort(0,0,0,"n",null,null);
 		int limit = rows/2;
 		if(rows % 2 == 1) limit++; 
 		String northRef1 = null, northRef2 = null;
@@ -93,10 +93,10 @@ public class Puzzle implements GruppoOrdinabile {
 		String southRef1 = null, southRef2 = null;
 		String westRef1 = null, westRef2 = null;
 		for(int i=0; i < limit; i++){
-			if(!mucchio.isEmpty()) northRef1 = sortPartial(i,i,i,"n",northRef1,northRef2);
-			if(!mucchio.isEmpty()) eastRef1 = sortPartial(i,cols-1-i,i,"e",eastRef1,eastRef2);
-			if(!mucchio.isEmpty()) southRef1 = sortPartial(rows-1-i,cols-1-i,i,"s",southRef1,southRef2);
-			if(!mucchio.isEmpty()) westRef1 = sortPartial(rows-1-i,i,i,"w",westRef1,westRef2);
+			if(!mucchio.isEmpty()) northRef1 = partialSort(i,i,i,"n",northRef1,northRef2);
+			if(!mucchio.isEmpty()) eastRef1 = partialSort(i,cols-1-i,i,"e",eastRef1,eastRef2);
+			if(!mucchio.isEmpty()) southRef1 = partialSort(rows-1-i,cols-1-i,i,"s",southRef1,southRef2);
+			if(!mucchio.isEmpty()) westRef1 = partialSort(rows-1-i,i,i,"w",westRef1,westRef2);
 			if(northRef1 != null) northRef2 = puzzle[i+1][i].getId();
 			if(eastRef1 != null) eastRef2 = puzzle[i][cols-2-i].getId();
 			if(southRef1 != null) southRef2 = puzzle[rows-2-i][cols-1-i].getId();
@@ -106,7 +106,7 @@ public class Puzzle implements GruppoOrdinabile {
 	
 	private void sortY(){
 		if(cols == 1)
-			sortPartial(0,0,0,"e",null,null);
+			partialSort(0,0,0,"e",null,null);
 		int limit = cols/2;
 		if(cols % 2 == 1) limit++; 
 		String northRef1 = null, northRef2 = null;
@@ -114,10 +114,10 @@ public class Puzzle implements GruppoOrdinabile {
 		String southRef1 = null, southRef2 = null;
 		String westRef1 = null, westRef2 = null;
 		for(int i=0; i < limit; i++){
-			if(!mucchio.isEmpty()) eastRef1 = sortPartial(i,cols-1-i,i,"e",eastRef1,eastRef2);
-			if(!mucchio.isEmpty()) northRef1 = sortPartial(i,i,i,"n",northRef1,northRef2);
-			if(!mucchio.isEmpty()) westRef1 = sortPartial(rows-1-i,i,i,"w",westRef1,westRef2);
-			if(!mucchio.isEmpty()) southRef1 = sortPartial(rows-1-i,cols-1-i,i,"s",southRef1,southRef2);
+			if(!mucchio.isEmpty()) eastRef1 = partialSort(i,cols-1-i,i,"e",eastRef1,eastRef2);
+			if(!mucchio.isEmpty()) northRef1 = partialSort(i,i,i,"n",northRef1,northRef2);
+			if(!mucchio.isEmpty()) westRef1 = partialSort(rows-1-i,i,i,"w",westRef1,westRef2);
+			if(!mucchio.isEmpty()) southRef1 = partialSort(rows-1-i,cols-1-i,i,"s",southRef1,southRef2);
 			System.out.println();
 			
 			for(int k=0;k<rows;k++)
@@ -144,31 +144,26 @@ public class Puzzle implements GruppoOrdinabile {
 			break;
 		}
 		Iterator<Piece> it = mucchio.iterator();
-		int index = 0;
 		while(it.hasNext()){
 			Piece current = it.next();
 			String strSide = current.getAdjacent(side);
 			String strInit = current.getAdjacent(init);
 			if(ref2 == null && ref1 == null 
 			  && strInit == null && strSide == null) {
-				System.out.print(current + "\n");
-				mucchio.remove(index);
+				it.remove();
 				return current;
 			}
-			else{
-				System.out.print(current);
+			else
 				if(ref1 != null && ref2 != null &&
 				 ref1.equals(strSide) && ref2.equals(strInit)) {
-					mucchio.remove(index);
+					it.remove();
 					return current;
 				}
-			}
-			index++;
 		}
 		return null;
 	}
 	
-	private String sortPartial(int row,int col,int iter,String side,String ref1, String ref2) {
+	private String partialSort(int row,int col,int iter,String side,String ref1, String ref2) {
 		int mX = 0, mY = 1;
 		if(side == "s") mY = -1;
 		if(side == "w" || side == "e"){
@@ -186,16 +181,14 @@ public class Puzzle implements GruppoOrdinabile {
 		for(int i = 1; i < limit; i++){
 			boolean found = false;
 			Iterator<Piece> it = mucchio.iterator();
-			int index = 0;
 			while(it.hasNext() && !found){
 				piece = it.next();
 				if(next.equals(piece.getId())){
 					puzzle[row+i*mX][col+i*mY] = piece;
-					mucchio.remove(index);
+					it.remove();
 					next = piece.getAdjacent(next(side));
 					found = true;
 				}
-				index++;
 			}
 		}
 		if(rows == 1 || cols == 1 || limit < 1) return null;
