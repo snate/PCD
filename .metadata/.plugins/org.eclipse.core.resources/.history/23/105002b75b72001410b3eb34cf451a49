@@ -1,0 +1,10 @@
+/**
+ * @author svalle
+ */
+public abstract class Piece {
+		public Piece() {}
+		public abstract String getAdjacent(String dir);
+		public String getId();
+	}
+
+}

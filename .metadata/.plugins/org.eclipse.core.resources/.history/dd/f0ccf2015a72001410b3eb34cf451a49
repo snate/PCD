@@ -1,0 +1,7 @@
+/**
+ * @author svalle
+ */
+public interface Piece {
+	public Piece getAdjacent();
+	public String getId();
+}

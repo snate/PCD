@@ -1,0 +1,11 @@
+/**
+ * 
+ */
+
+/**
+ * @author nate
+ *
+ */
+public abstract class Piece {
+
+}

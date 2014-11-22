@@ -1,0 +1,27 @@
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import Puzzle.Piece;
+
+/**
+ * 
+ * @author svalle
+ */
+public class Scrum implements Gruppo {
+	private ArrayList<PuzzleItem> mucchio = new ArrayList<PuzzleItem>();
+	
+	@Override
+	public void fill(Path path) {
+		ArrayList<String> rows = InputOutput.readContent(path);
+		Iterator<String> ita = rows.iterator();
+		while(ita.hasNext()){
+			String line = ita.next();
+			String[] piece = line.split("\\t",-1);
+			PuzzleItem item = new Piece(piece);
+			for(int i=0; i<piece.length; i++)
+				System.out.print(piece[i] + " ");
+			mucchio.add(item);
+		}
+	}
+}

@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.nio.file.Path;
 
@@ -6,10 +5,14 @@ import java.nio.file.Path;
  * @author svalle
  *
  */
-public class Puzzle implements GruppoOrdinabile {
+public class Puzzle implements Gruppo,GruppoOrdinabile {
 	private int rows;
 	private int cols;
-	private static class Piece {
+
+	private Gruppo mucchio;
+	private PuzzleItem[][] puzzle;
+	
+	private static class Piece implements PuzzleItem {
 		private String id;
 		private String car;
 		private String north;
@@ -17,7 +20,7 @@ public class Puzzle implements GruppoOrdinabile {
 		private String east;
 		private String west;
 
-		public Piece(String[] str){
+		public Piece(String[] str) {
 			for(int i = 0; i< str.length; i++)
 				if(str[i].isEmpty())
 					str[i] = null;
@@ -28,7 +31,9 @@ public class Puzzle implements GruppoOrdinabile {
 			south = str[4];
 			west = str[5];
 		}
+		@Override
 		public String getId() {return id;}
+		@Override
 		public String getAdjacent(String dir){
 			switch(dir){
 			case "n":
@@ -45,25 +50,20 @@ public class Puzzle implements GruppoOrdinabile {
 		public String toString() {return car;}
 	}
 
-	private ArrayList<Piece> mucchio = new ArrayList<Piece>();
-	private Piece[][] puzzle;
+	public static PuzzleItem createPiece(String str[]){
+		return new Piece(str);
+	}
 	
 	@Override
 	public void fill(Path path) {
-		ArrayList<String> rows = InputOutput.readContent(path);
-		Iterator<String> ita = rows.iterator();
-		while(ita.hasNext()){
-			String line = ita.next();
-			String[] piece = line.split("\\t",-1);
-			Piece item = new Piece(piece);
-			mucchio.add(item);
-		}
+		mucchio = new Scrum();
+		mucchio.fill(path);
 	}
 	
 	@Override
 	public void sort() {
 		setDim();
-		puzzle = new Piece[rows][cols];
+		puzzle = new PuzzleItem[rows][cols];
 		if(rows <= cols)
 			sortX();
 		else
@@ -72,14 +72,8 @@ public class Puzzle implements GruppoOrdinabile {
 	
 	private void setDim(){
 		int r = 0, c = 0;
-		Iterator<Piece> it = mucchio.iterator();
-		while(it.hasNext()){
-			Piece item = it.next();
-			if(item.getAdjacent("n") == null) c++;
-			if(item.getAdjacent("e") == null) r++;
-		}
-		cols = c;
-		rows = r;
+		rows = mucchio.dim("r");
+		cols = mucchio.dim("c");
 		System.out.println(c + " " + r);
 	}
 	
@@ -88,10 +82,10 @@ public class Puzzle implements GruppoOrdinabile {
 			partialSort(0,0,0,"n",null,null);
 		int limit = rows/2;
 		if(rows % 2 == 1) limit++; 
-		String northRef1 = null, northRef2 = null;
-		String eastRef1 = null, eastRef2 = null;
-		String southRef1 = null, southRef2 = null;
-		String westRef1 = null, westRef2 = null;
+		String northRef1 = "VUOTO", northRef2 = "VUOTO";
+		String eastRef1 = "VUOTO", eastRef2 = "VUOTO";
+		String southRef1 = "VUOTO", southRef2 = "VUOTO";
+		String westRef1 = "VUOTO", westRef2 = "VUOTO";
 		for(int i=0; i < limit; i++){
 			if(!mucchio.isEmpty()) northRef1 = partialSort(i,i,i,"n",northRef1,northRef2);
 			if(!mucchio.isEmpty()) eastRef1 = partialSort(i,cols-1-i,i,"e",eastRef1,eastRef2);
@@ -108,17 +102,16 @@ public class Puzzle implements GruppoOrdinabile {
 		if(cols == 1)
 			partialSort(0,0,0,"e",null,null);
 		int limit = cols/2;
-		if(cols % 2 == 1) limit++; 
-		String northRef1 = null, northRef2 = null;
-		String eastRef1 = null, eastRef2 = null;
-		String southRef1 = null, southRef2 = null;
-		String westRef1 = null, westRef2 = null;
+		if(cols % 2 == 1) limit++;
+		String northRef1 = "VUOTO", northRef2 = "VUOTO";
+		String eastRef1 = "VUOTO", eastRef2 = "VUOTO";
+		String southRef1 = "VUOTO", southRef2 = "VUOTO";
+		String westRef1 = "VUOTO", westRef2 = "VUOTO";
 		for(int i=0; i < limit; i++){
 			if(!mucchio.isEmpty()) eastRef1 = partialSort(i,cols-1-i,i,"e",eastRef1,eastRef2);
 			if(!mucchio.isEmpty()) northRef1 = partialSort(i,i,i,"n",northRef1,northRef2);
 			if(!mucchio.isEmpty()) westRef1 = partialSort(rows-1-i,i,i,"w",westRef1,westRef2);
 			if(!mucchio.isEmpty()) southRef1 = partialSort(rows-1-i,cols-1-i,i,"s",southRef1,southRef2);
-			System.out.println();
 			
 			for(int k=0;k<rows;k++)
 				for(int j=0;j<cols;j++)
@@ -133,7 +126,7 @@ public class Puzzle implements GruppoOrdinabile {
 		}
 	}
 	
-	private Piece getPiece(String side, String ref1, String ref2) {
+	private PuzzleItem getPiece(String side, String ref1, String ref2) {
 		String init = "w";
 		switch(side){
 		case "e": init = "n";
@@ -143,9 +136,9 @@ public class Puzzle implements GruppoOrdinabile {
 		case "w": init = "s";
 			break;
 		}
-		Iterator<Piece> it = mucchio.iterator();
+		Iterator<PuzzleItem> it = mucchio.iterator();
 		while(it.hasNext()){
-			Piece current = it.next();
+			PuzzleItem current = it.next();
 			String strSide = current.getAdjacent(side);
 			String strInit = current.getAdjacent(init);
 			if(ref2 == null && ref1 == null 
@@ -174,13 +167,13 @@ public class Puzzle implements GruppoOrdinabile {
 		int limit = cols-iter-1;
 		if(side=="e" || side=="w")
 			limit = rows-iter-1;
-		Piece piece = getPiece(side,ref1,ref2);
+		PuzzleItem piece = getPiece(side,ref1,ref2);
 		System.out.print(piece);
 		puzzle[row][col] = piece;
 		String next = piece.getAdjacent(next(side));
 		for(int i = 1; i < limit; i++){
 			boolean found = false;
-			Iterator<Piece> it = mucchio.iterator();
+			Iterator<PuzzleItem> it = mucchio.iterator();
 			while(it.hasNext() && !found){
 				piece = it.next();
 				if(next.equals(piece.getId())){
@@ -206,7 +199,7 @@ public class Puzzle implements GruppoOrdinabile {
 	}
 	
 	@Override
-	public void write(Path path) {
+	public void write(Path path){
 		String output = "";
 		
 		for(int i = 0; i < rows; i++)
@@ -226,5 +219,26 @@ public class Puzzle implements GruppoOrdinabile {
 		output += rows + " " + cols;
 		
 		InputOutput.writeContent(path, output);
+	}
+
+	@Override
+	public int dim(String side){
+		if(side.equals("r")) return rows;
+		else return cols;
+	}
+	
+	@Override
+	public boolean isEmpty() {
+		boolean somethingPresent = false;
+		if(!mucchio.isEmpty()) somethingPresent = true;
+		for(int i = 0; i < rows; i++)
+			for(int j = 0; j < cols; j++)
+				if(puzzle[i][j] != null)
+					somethingPresent = true;
+		return somethingPresent;
+	}
+
+	public Iterator<PuzzleItem> iterator() {
+		return mucchio.iterator();
 	}
 }

@@ -3,28 +3,30 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="330" key="DIALOG_WIDTH"/>
 		<item value="149" key="DIALOG_Y_ORIGIN"/>
-		<item value="543" key="DIALOG_X_ORIGIN"/>
 		<item value="456" key="DIALOG_HEIGHT"/>
+		<item value="543" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="partialSort" key="selection"/>
+		<item value="mucchio" key="selection"/>
 		<list key="findhistory">
+			<item value="mucchio1"/>
+			<item value="mucchio"/>
+			<item value="Piece"/>
 			<item value="sortPartial"/>
 			<item value="index"/>
 			<item value="equals"/>
 			<item value="System.out"/>
 			<item value="isEmpty"/>
-			<item value="sdf"/>
-			<item value="rows ="/>
-			<item value="getPiece"/>
 		</list>
 		<list key="replacehistory">
+			<item value="mucchio"/>
+			<item value="mucchio1"/>
 			<item value="partialSort"/>
 		</list>
 	</section>

@@ -1,0 +1,6 @@
+/**
+ * @author svalle
+ */
+public interface Item {
+
+}

@@ -1,0 +1,22 @@
+/**
+ * @author svalle
+ */
+public abstract class Piece {
+		private String id = str[0];
+		private String car;
+		private String north;
+		private String east;
+		private String south;
+		private String west;
+		public Piece(String[] str) {
+			car = str[1];
+			north = str[2];
+			east  = str[3];
+			south = str[4]
+			west = str[5];
+		}
+		public abstract String getAdjacent(String dir);
+		public String getId();
+	}
+
+}
