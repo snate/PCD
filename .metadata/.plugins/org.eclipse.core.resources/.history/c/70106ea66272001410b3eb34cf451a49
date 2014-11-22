@@ -1,6 +1,0 @@
-/**
- * @author svalle
- */
-public interface Gruppo {
-	public void fill(Path path);
-}

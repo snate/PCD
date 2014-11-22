@@ -3,5 +3,6 @@
  */
 public interface PuzzleItem {
 	public String getId();
-	public String getAdjacent(String dir);
+	public String getAdjacent(Gruppo.Dir dir);
+	public boolean equals(String str);
 }

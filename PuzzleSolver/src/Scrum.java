@@ -10,16 +10,50 @@ public class Scrum implements Gruppo {
 	private ArrayList<PuzzleItem> mucchio = new ArrayList<PuzzleItem>();
 	
 	@Override
-	public int dim(String side) {
-		int x = 0,rc;
-		if(side=="c") rc = 0;
-		else		  rc = 1;
+	public int conta(Dir side) {
+		int x = 0;
 		Iterator<PuzzleItem> it = mucchio.iterator();
 		while(it.hasNext()){
 			PuzzleItem item = it.next();
-			if(item.getAdjacent(DIR[rc]).equals("VUOTO")) x++;
+			if(item.getAdjacent(side).equals("VUOTO")) x++;
 		}
 		return x;
+	}
+	
+	@Override
+	public PuzzleItem getPiece(String id) {
+		Iterator<PuzzleItem> it = mucchio.iterator();
+		while(it.hasNext()) {
+			PuzzleItem item = it.next();
+			if(item.equals(id)) {
+				it.remove();
+				return item;
+			}
+		}
+		return null;
+	}
+	
+	@Override
+	public PuzzleItem getPieceByRefs(Dir side, String ref1, String ref2) {
+		Dir init = side.init();
+		Iterator<PuzzleItem> it = mucchio.iterator();
+		while(it.hasNext()){
+			PuzzleItem current = it.next();
+			String strSide = current.getAdjacent(side);
+			String strInit = current.getAdjacent(init);
+			if(ref2 == null && ref1 == null 
+			  && strInit == null && strSide == null) {
+				it.remove();
+				return current;
+			}
+			else
+				if(ref1 != null && ref2 != null &&
+				 ref1.equals(strSide) && ref2.equals(strInit)) {
+					it.remove();
+					return current;
+				}
+		}
+		return null;
 	}
 	
 	@Override

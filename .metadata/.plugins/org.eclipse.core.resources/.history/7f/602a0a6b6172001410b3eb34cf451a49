@@ -1,9 +1,0 @@
-import java.util.ArrayList;
-
-/**
- * 
- * @author svalle
- */
-public class Scrum {
-	private ArrayList<PuzzleItem> mucchio = new ArrayList<PuzzleItem>();
-}

@@ -34,8 +34,8 @@ public class Puzzle implements Gruppo,GruppoOrdinabile {
 		@Override
 		public String getId() {return id;}
 		@Override
-		public String getAdjacent(String dir){
-			switch(dir){
+		public String getAdjacent(Dir dir){
+			switch(dir.toString()){
 			case "n":
 				return north;
 			case "e":
@@ -48,6 +48,7 @@ public class Puzzle implements Gruppo,GruppoOrdinabile {
 			return null;
 		}
 		public String toString() {return car;}
+		public boolean equals(String str) {return id.equals(str); }
 	}
 
 	public static PuzzleItem createPiece(String str[]){
@@ -68,18 +69,31 @@ public class Puzzle implements Gruppo,GruppoOrdinabile {
 			sortX();
 		else
 			sortY();
+		/*
+		 * if(rows >= cols)
+		 *    for(int i = 0; i < rows; i++)
+		 *       partialSort(i,true);
+		 * else
+		 *    for(int i = 0; i < cols; i++)
+		 *       partialSort(i,false);
+		 *       
+		 *  partialSort(int line, boolean rowOrdering) {
+		 *     if(rowOrdering)
+		 *         ...
+		 *     else
+		 *         ...
+		 *  }
+		 */
 	}
 	
 	private void setDim(){
-		int r = 0, c = 0;
-		rows = mucchio.dim("r");
-		cols = mucchio.dim("c");
-		System.out.println(c + " " + r);
+		cols = mucchio.conta(new Dir("n"));
+		rows = mucchio.conta(new Dir("e"));
 	}
 	
 	private void sortX(){
 		if(rows == 1)
-			partialSort(0,0,0,"n",null,null);
+			partialSort(0,0,0,new Dir("n"),null,null);
 		int limit = rows/2;
 		if(rows % 2 == 1) limit++; 
 		String northRef1 = "VUOTO", northRef2 = "VUOTO";
@@ -87,10 +101,10 @@ public class Puzzle implements Gruppo,GruppoOrdinabile {
 		String southRef1 = "VUOTO", southRef2 = "VUOTO";
 		String westRef1 = "VUOTO", westRef2 = "VUOTO";
 		for(int i=0; i < limit; i++){
-			if(!mucchio.isEmpty()) northRef1 = partialSort(i,i,i,"n",northRef1,northRef2);
-			if(!mucchio.isEmpty()) eastRef1 = partialSort(i,cols-1-i,i,"e",eastRef1,eastRef2);
-			if(!mucchio.isEmpty()) southRef1 = partialSort(rows-1-i,cols-1-i,i,"s",southRef1,southRef2);
-			if(!mucchio.isEmpty()) westRef1 = partialSort(rows-1-i,i,i,"w",westRef1,westRef2);
+			if(!mucchio.isEmpty()) northRef1 = partialSort(i,i,i,new Dir("n"),northRef1,northRef2);
+			if(!mucchio.isEmpty()) eastRef1 = partialSort(i,cols-1-i,i,new Dir("e"),eastRef1,eastRef2);
+			if(!mucchio.isEmpty()) southRef1 = partialSort(rows-1-i,cols-1-i,i,new Dir("s"),southRef1,southRef2);
+			if(!mucchio.isEmpty()) westRef1 = partialSort(rows-1-i,i,i,new Dir("w"),westRef1,westRef2);
 			if(northRef1 != null) northRef2 = puzzle[i+1][i].getId();
 			if(eastRef1 != null) eastRef2 = puzzle[i][cols-2-i].getId();
 			if(southRef1 != null) southRef2 = puzzle[rows-2-i][cols-1-i].getId();
@@ -100,7 +114,7 @@ public class Puzzle implements Gruppo,GruppoOrdinabile {
 	
 	private void sortY(){
 		if(cols == 1)
-			partialSort(0,0,0,"e",null,null);
+			partialSort(0,0,0,new Dir("e"),null,null);
 		int limit = cols/2;
 		if(cols % 2 == 1) limit++;
 		String northRef1 = "VUOTO", northRef2 = "VUOTO";
@@ -108,10 +122,10 @@ public class Puzzle implements Gruppo,GruppoOrdinabile {
 		String southRef1 = "VUOTO", southRef2 = "VUOTO";
 		String westRef1 = "VUOTO", westRef2 = "VUOTO";
 		for(int i=0; i < limit; i++){
-			if(!mucchio.isEmpty()) eastRef1 = partialSort(i,cols-1-i,i,"e",eastRef1,eastRef2);
-			if(!mucchio.isEmpty()) northRef1 = partialSort(i,i,i,"n",northRef1,northRef2);
-			if(!mucchio.isEmpty()) westRef1 = partialSort(rows-1-i,i,i,"w",westRef1,westRef2);
-			if(!mucchio.isEmpty()) southRef1 = partialSort(rows-1-i,cols-1-i,i,"s",southRef1,southRef2);
+			if(!mucchio.isEmpty()) eastRef1 = partialSort(i,cols-1-i,i,new Dir("e"),eastRef1,eastRef2);
+			if(!mucchio.isEmpty()) northRef1 = partialSort(i,i,i,new Dir("n"),northRef1,northRef2);
+			if(!mucchio.isEmpty()) westRef1 = partialSort(rows-1-i,i,i,new Dir("w"),westRef1,westRef2);
+			if(!mucchio.isEmpty()) southRef1 = partialSort(rows-1-i,cols-1-i,i,new Dir("s"),southRef1,southRef2);
 			
 			for(int k=0;k<rows;k++)
 				for(int j=0;j<cols;j++)
@@ -126,76 +140,21 @@ public class Puzzle implements Gruppo,GruppoOrdinabile {
 		}
 	}
 	
-	private PuzzleItem getPiece(String side, String ref1, String ref2) {
-		String init = "w";
-		switch(side){
-		case "e": init = "n";
-			break;
-		case "s": init = "e";
-			break;
-		case "w": init = "s";
-			break;
-		}
-		Iterator<PuzzleItem> it = mucchio.iterator();
-		while(it.hasNext()){
-			PuzzleItem current = it.next();
-			String strSide = current.getAdjacent(side);
-			String strInit = current.getAdjacent(init);
-			if(ref2 == null && ref1 == null 
-			  && strInit == null && strSide == null) {
-				it.remove();
-				return current;
-			}
-			else
-				if(ref1 != null && ref2 != null &&
-				 ref1.equals(strSide) && ref2.equals(strInit)) {
-					it.remove();
-					return current;
-				}
-		}
-		return null;
-	}
-	
-	private String partialSort(int row,int col,int iter,String side,String ref1, String ref2) {
-		int mX = 0, mY = 1;
-		if(side == "s") mY = -1;
-		if(side == "w" || side == "e"){
-			mY = 0;
-			if(side == "w") mX = -1;
-			else			mX = 1;
-		}
+	private String partialSort(int row,int col,int iter,Dir side,String ref1, String ref2) {
+		int mX = side.mX();
+		int mY = side.mY();
 		int limit = cols-iter-1;
-		if(side=="e" || side=="w")
+		if(side.equals("e") || side.equals("w"))
 			limit = rows-iter-1;
-		PuzzleItem piece = getPiece(side,ref1,ref2);
-		System.out.print(piece);
+		PuzzleItem piece = mucchio.getPieceByRefs(side,ref1,ref2);
 		puzzle[row][col] = piece;
-		String next = piece.getAdjacent(next(side));
 		for(int i = 1; i < limit; i++){
-			boolean found = false;
-			Iterator<PuzzleItem> it = mucchio.iterator();
-			while(it.hasNext() && !found){
-				piece = it.next();
-				if(next.equals(piece.getId())){
-					puzzle[row+i*mX][col+i*mY] = piece;
-					it.remove();
-					next = piece.getAdjacent(next(side));
-					found = true;
-				}
-			}
+			String next = piece.getAdjacent(side.next());
+			piece = mucchio.getPiece(next);
+			puzzle[row+i*mX][col+i*mY] = piece;
 		}
 		if(rows == 1 || cols == 1 || limit < 1) return null;
 		return (puzzle[row+mX][col+mY]).getId();
-	}
-	
-	private String next(String side){
-		switch(side){
-		case "w": return "n";
-		case "e": return "s";
-		case "n": return "e";
-		case "s": return "w";
-		}
-		return null;
 	}
 	
 	@Override
@@ -222,7 +181,7 @@ public class Puzzle implements Gruppo,GruppoOrdinabile {
 	}
 
 	@Override
-	public int dim(String side){
+	public int conta(Dir side){
 		if(side.equals("r")) return rows;
 		else return cols;
 	}
@@ -238,7 +197,26 @@ public class Puzzle implements Gruppo,GruppoOrdinabile {
 		return somethingPresent;
 	}
 
+	@Override
 	public Iterator<PuzzleItem> iterator() {
 		return mucchio.iterator();
+	}
+
+	@Override
+	public PuzzleItem getPiece(String id) {
+		PuzzleItem piece = mucchio.getPiece(id);
+		if(piece != null) return piece;
+		for(int i = 0; i < rows; i++)
+			for(int j = 0; j < cols; j++) {
+				piece = puzzle[i][j];
+				if(piece.equals(id))
+					return piece;
+			}
+		return null;
+	}
+
+	@Override
+	public PuzzleItem getPieceByRefs(Dir side, String ref1, String ref2) {
+		return mucchio.getPieceByRefs(side, ref1, ref2);
 	}
 }
