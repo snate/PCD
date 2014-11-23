@@ -1,0 +1,185 @@
+import java.nio.file.Path;
+
+/**
+ * @author svalle
+ *
+ */
+public class Puzzle implements GruppoOrdinabile {
+	private int rows;
+	private int cols;
+
+	private Gruppo mucchio;
+	private PuzzleItem[][] puzzle;
+	
+	private static class Piece implements PuzzleItem {
+		private String id;
+		private String car;
+		private String north;
+		private String south;
+		private String east;
+		private String west;
+
+		public Piece(String[] str) {
+			for(int i = 0; i< str.length; i++)
+				if(str[i].isEmpty())
+					str[i] = null;
+			id = str[0];
+			car = str[1];
+			north = str[2];
+			east = str[3];
+			south = str[4];
+			west = str[5];
+		}
+		@Override
+		public String getId() {return id;}
+		@Override
+		public String getAdjacent(Dir dir){
+			switch(dir.toString()){
+			case "n":
+				return north;
+			case "e":
+				return east;
+			case "w":
+				return west;
+			case "s":
+				return south;
+			}
+			return null;
+		}
+		public String toString() {return car;}
+		public boolean equals(String str) {return id.equals(str); }
+	}
+
+	public static PuzzleItem createPiece(String str[]){
+		return new Piece(str);
+	}
+	
+	@Override
+	public void fill(Path path) {
+		mucchio = new Scrum();
+		mucchio.fill(path);
+	}
+
+	private void setDim(){
+		cols = mucchio.conta(createDir("n"));
+		rows = mucchio.conta(createDir("e"));
+	}
+	
+	@Override
+	public void sort() {
+		setDim();
+		puzzle = new PuzzleItem[rows][cols];
+		String ref = "VUOTO";
+		Dir edge = createDir("w"); 
+		int limit = rows;
+			if(cols > rows) {
+				edge = createDir("n");
+				limit = cols;
+			}
+		for(int i = 0; i < limit; i++) {
+			PuzzleItem borderPiece = mucchio.getEdgePiece(edge,edge.init(),ref);
+			setEdgePiece(edge, i, borderPiece);
+			ref = borderPiece.getAdjacent(edge.next());
+		}
+		for(int i = 0; i < limit; i++) {
+				orderLine(edge,i);
+		}
+	}
+
+	private void setEdgePiece(Dir edge, int position, PuzzleItem piece) {
+		if(edge.equals("n"))
+			puzzle[0][position] = piece;
+		else
+			puzzle[position][0] = piece;
+	}
+	
+	private void orderLine(Dir top, int i) {
+		if(top.equals("n")) {
+			for(int j = 1; j < rows; j++) {
+				PuzzleItem item = puzzle[j][i];
+				String prevId = item.getAdjacent(top.opposite());
+				item = mucchio.getPiece(prevId);
+				puzzle[][];
+			}
+		}
+		else {
+			
+		}
+	}
+	
+	@Override
+	public void write(Path path){
+		String output = "";
+		
+		for(int i = 0; i < rows; i++)
+			for(int j = 0; j < cols; j++)
+				output += puzzle[i][j];
+		output += "\n\n";
+
+		for(int i = 0; i < rows; i++){
+			for(int j = 0; j < cols; j++){
+				output += puzzle[i][j];
+				if(j!=cols-1) output += "\t";
+			}
+			output+="\n";
+		}
+		output += "\n";
+
+		output += rows + " " + cols;
+		
+		InputOutput.writeContent(path, output);
+	}
+
+	@Override
+	public int conta(Dir side){
+		if(side.equals("r")) return rows;
+		else return cols;
+	}
+	
+	@Override
+	public boolean isEmpty() {
+		boolean somethingPresent = false;
+		if(!mucchio.isEmpty()) somethingPresent = true;
+		for(int i = 0; i < rows; i++)
+			for(int j = 0; j < cols; j++)
+				if(puzzle[i][j] != null)
+					somethingPresent = true;
+		return somethingPresent;
+	}
+
+	@Override
+	public PuzzleItem getPiece(String id) {
+		PuzzleItem piece = mucchio.getPiece(id);
+		if(piece != null) return piece;
+		for(int i = 0; i < rows; i++)
+			for(int j = 0; j < cols; j++) {
+				piece = puzzle[i][j];
+				if(piece.equals(id))
+					return piece;
+			}
+		return null;
+	}
+
+	@Override
+	public PuzzleItem getEdgePiece(Dir edge, Dir side, String ref) {
+		PuzzleItem item = mucchio.getEdgePiece(edge, side, ref);
+		if(item != null)
+			return item;
+		int line = 0;
+		if(edge.equals("s"))
+			line = rows-1;
+		if(edge.equals("e"))
+			line = cols-1;
+		if(edge.equals("n") || edge.equals("s"))
+			for(int j = 0; j < cols; j++)
+				if(puzzle[line][j].equals(ref))
+					return puzzle[line][j];
+		else
+			for(int i = 0; i < rows; i++)
+				if(puzzle[i][line].equals(ref))
+					return puzzle[i][line];
+		return null;
+	}
+
+	private Dir createDir(String str) {return new Dir(str);}
+}

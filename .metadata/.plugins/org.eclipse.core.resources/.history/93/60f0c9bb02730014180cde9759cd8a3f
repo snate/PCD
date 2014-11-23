@@ -1,0 +1,41 @@
+import Gruppo.Dir;
+
+
+		public Dir next() {
+			switch(dir){
+			case "w": return new Dir("n");
+			case "e": return new Dir("s");
+			case "n": return new Dir("e");
+			case "s": return new Dir("w");
+			}
+			return null;
+		}
+		public Dir init() {
+			switch(dir.toString()){
+			case "n": return new Dir("w");
+			case "e": return new Dir("n");
+			case "s": return new Dir("e");
+			case "w": return new Dir("s");
+			}
+			return null;
+		}
+		public int mX(){
+			switch(dir) {
+			case "n":
+			case "s": return 0;
+			case "e": return 1;
+			case "w": return -1;
+			}
+			return 0;
+		}
+		public int mY(){
+			switch(dir) {
+			case "n": return 1;
+			case "s": return -1;
+			case "e": 
+			case "w": return 0;
+			}
+			return 0;
+		}
+	}
+	public  Dir createDir(String str);

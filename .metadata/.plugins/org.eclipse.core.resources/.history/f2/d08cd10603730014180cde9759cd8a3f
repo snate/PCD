@@ -1,0 +1,14 @@
+import java.nio.file.Path;
+
+/**
+ * @author svalle
+ */
+public interface Gruppo {
+	public static final String[] DIR = {"n", "e", "w", "s"};
+	public void fill(Path path);
+	public int conta(Dir side);
+	public PuzzleItem getPiece(String id);
+	public PuzzleItem getEdgePiece(Dir edge, Dir side, String ref);
+	public PuzzleItem getPieceByRefs(Dir side, String ref1, String ref2);
+	public boolean isEmpty();
+}

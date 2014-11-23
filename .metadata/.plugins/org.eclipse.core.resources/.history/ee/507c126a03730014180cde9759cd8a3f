@@ -1,0 +1,6 @@
+/**
+ * @author svalle
+ */
+public class Factory {
+	public Dir createDir() {}
+}
