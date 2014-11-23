@@ -70,6 +70,10 @@ public class Scrum implements Gruppo {
 			System.out.println();
 		}
 	}
+
+	public Iterator<PuzzleItem> iterator(){
+		return mucchio.iterator();
+	}
 	
 	public boolean isEmpty(){
 		return mucchio.isEmpty();

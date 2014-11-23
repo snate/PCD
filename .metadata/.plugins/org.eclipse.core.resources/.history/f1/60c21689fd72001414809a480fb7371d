@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.nio.file.Path;
 
 /**
@@ -10,6 +11,7 @@ public interface Gruppo {
 	public PuzzleItem getPiece(String id);
 	public PuzzleItem getPieceByRefs(Dir side, String ref1, String ref2);
 	public boolean isEmpty();
+	public Iterator<PuzzleItem> iterator();
 	public static class Dir {
 		private String dir;
 		public Dir(String d) { dir = d; }

@@ -1,11 +1,10 @@
-import java.util.Iterator;
 import java.nio.file.Path;
 
 /**
  * @author svalle
  *
  */
-public class Puzzle implements Gruppo,GruppoOrdinabile {
+public class Puzzle implements GruppoOrdinabile {
 	private int rows;
 	private int cols;
 
@@ -60,6 +59,11 @@ public class Puzzle implements Gruppo,GruppoOrdinabile {
 		mucchio = new Scrum();
 		mucchio.fill(path);
 	}
+
+	private void setDim(){
+		cols = mucchio.conta(new Dir("n"));
+		rows = mucchio.conta(new Dir("e"));
+	}
 	
 	@Override
 	public void sort() {
@@ -84,11 +88,6 @@ public class Puzzle implements Gruppo,GruppoOrdinabile {
 		 *         ...
 		 *  }
 		 */
-	}
-	
-	private void setDim(){
-		cols = mucchio.conta(new Dir("n"));
-		rows = mucchio.conta(new Dir("e"));
 	}
 	
 	private void sortX(){
@@ -195,11 +194,6 @@ public class Puzzle implements Gruppo,GruppoOrdinabile {
 				if(puzzle[i][j] != null)
 					somethingPresent = true;
 		return somethingPresent;
-	}
-
-	@Override
-	public Iterator<PuzzleItem> iterator() {
-		return mucchio.iterator();
 	}
 
 	@Override
