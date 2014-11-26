@@ -50,12 +50,13 @@ public class Puzzle implements GruppoOrdinabile {
 		public boolean equals(String str) {return id.equals(str); }
 	}
 
-	public static PuzzleItem createPiece(String str[]){
+	public static PuzzleItem createPiece(String[] str){
 		return new Piece(str);
 	}
 	
 	@Override
 	public void fill(Path path) {
+		System.out.println(path);
 		mucchio = new Scrum();
 		mucchio.fill(path);
 	}
@@ -78,7 +79,6 @@ public class Puzzle implements GruppoOrdinabile {
 			}
 		for(int i = 0; i < limit; i++) {
 			PuzzleItem borderPiece = mucchio.getEdgePiece(edge,edge.init(),ref);
-			System.out.println(borderPiece);
 			setEdgePiece(edge, i, borderPiece);
 			ref = borderPiece.getId();
 		}
