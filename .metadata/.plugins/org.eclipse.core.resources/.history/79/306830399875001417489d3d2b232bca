@@ -114,7 +114,7 @@ public class Test {
 		for(int i = 0; i < rows; i++){
 			confronto = "";
 			for(int j = 0; j < cols; j++) {
-				confronto += map[i][j].getLetter(); 
+				confronto += map[i][j]; 
 				if(j != cols-1)
 					confronto += "\t";	
 			}

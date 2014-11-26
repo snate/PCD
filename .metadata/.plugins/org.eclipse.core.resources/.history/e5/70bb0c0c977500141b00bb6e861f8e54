@@ -108,23 +108,7 @@ public class Test {
 	public boolean check(Path outputPath) {
 		boolean corretto = true;
 		ArrayList<String> prodotto = InputOutput.readContent(outputPath);
-		String confronto;
-		if(!content.equals(prodotto.get(0)))
-			corretto = false;
-		for(int i = 0; i < rows; i++){
-			confronto = "";
-			for(int j = 0; j < cols; j++) {
-				confronto += map[i][j].getLetter(); 
-				if(j != cols-1)
-					confronto += "\t";	
-			}
-			System.out.println(confronto);
-			if(!confronto.equals(prodotto.get(2+i)))
-				corretto = false;
-		}
-		confronto = rows + " " + cols;
-		if(!confronto.equals(prodotto.get(3+rows)))
-			corretto = false;
+		
 		return corretto;
 	}
 }

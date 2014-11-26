@@ -27,7 +27,7 @@ public class PuzzleSolver {
 		if(test.check(outputPath))
 			System.out.println("OK");
 		else
-			System.out.println("ERRORE");
+			System.out.println();
 	}
 
 }

@@ -24,10 +24,7 @@ public class PuzzleSolver {
 		p.fill(readPath);
 		p.sort();
 		p.write(outputPath);
-		if(test.check(outputPath))
-			System.out.println("OK");
-		else
-			System.out.println("ERRORE");
+		if(test.check(outputPath)) {}
 	}
 
 }
