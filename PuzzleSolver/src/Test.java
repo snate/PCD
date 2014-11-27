@@ -105,7 +105,18 @@ public class Test {
 		return p;
 	}
 	
-	public boolean check(Path outputPath) {
+	public static boolean checkIn(Path inputPath) {
+		ArrayList<String> input = InputOutput.readContent(inputPath);
+		Iterator<String> it = input.iterator();
+		while(it.hasNext()) {
+			String line = it.next();
+			String[] piece = line.split("\\t",-1);
+			if(piece.length != 6) return false;
+		}
+		return true;
+	}
+	
+	public boolean checkOut(Path outputPath) {
 		boolean corretto = true;
 		ArrayList<String> prodotto = InputOutput.readContent(outputPath);
 		String confronto;

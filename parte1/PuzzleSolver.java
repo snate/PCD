@@ -1,0 +1,32 @@
+import java.nio.file.Path;
+import java.nio.file.Paths;/**
+ * @author svalle
+ */
+public class PuzzleSolver {
+
+	/**
+	 * @param {string} stream - Path dei file di input e output
+	 */
+	public static void main(String[] args) {
+		String pathIn = args[0];
+		String pathOut = args[1];
+		Path inputPath = Paths.get(pathIn);
+		Path outputPath = Paths.get(pathOut);
+		if(!Test.checkIn(inputPath)) {
+			System.out.println("Bad input file");
+			return;
+		}
+		GruppoOrdinabile p = new Puzzle();
+		//Test test = new Test();					TEST
+		//Path readPath = test.build(inputPath);	TEST
+		//p.fill(readPath);							TEST
+		p.fill(inputPath);
+		p.sort();
+		p.write(outputPath);
+		//if(test.checkOut(outputPath))				TEST
+		//	System.out.println("OK");				TEST
+		//else										TEST
+		//	System.out.println("ERRORE");			TEST
+	}
+
+}

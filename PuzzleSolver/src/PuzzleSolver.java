@@ -12,22 +12,21 @@ public class PuzzleSolver {
 		String pathOut = args[1];
 		Path inputPath = Paths.get(pathIn);
 		Path outputPath = Paths.get(pathOut);
+		if(Test.checkIn(inputPath)) {
+			System.out.println("Bad input file");
+			return;	
+		}
 		GruppoOrdinabile p = new Puzzle();
-		// TOGLIERE NELLA CONSEGNA
-		// TOGLIERE NELLA CONSEGNA
-		// TOGLIERE NELLA CONSEGNA
-		// TOGLIERE NELLA CONSEGNA
-		// TOGLIERE NELLA CONSEGNA
-		// !!!!!!!!!!!!!!
-		Test test = new Test();
-		Path readPath = test.build(inputPath);
-		p.fill(readPath);
+		//Test test = new Test();					TEST
+		//Path readPath = test.build(inputPath);	TEST
+		//p.fill(readPath);							TEST
+		p.fill(inputPath);
 		p.sort();
 		p.write(outputPath);
-		if(test.check(outputPath))
-			System.out.println("OK");
-		else
-			System.out.println("ERRORE");
+		//if(test.checkOut(outputPath))				TEST
+		//	System.out.println("OK");				TEST
+		//else										TEST
+		//	System.out.println("ERRORE");			TEST
 	}
 
 }
