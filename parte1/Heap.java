@@ -2,13 +2,11 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import Gruppo.Dir;
-
 /**
  * 
  * @author svalle
  */
-public class Scrum implements Gruppo {
+public class Heap implements Gruppo {
 	private ArrayList<PuzzleItem> mucchio = new ArrayList<PuzzleItem>();
 	
 	@Override
@@ -36,25 +34,16 @@ public class Scrum implements Gruppo {
 	}
 	
 	@Override
-	public PuzzleItem getPieceByRefs(Dir side, String ref1, String ref2) {
-
-		Dir init = side.init();
+	public PuzzleItem getEdgePiece(Dir edge, Dir refSide, String ref){
 		Iterator<PuzzleItem> it = mucchio.iterator();
 		while(it.hasNext()){
-			PuzzleItem current = it.next();
-			String strSide = current.getAdjacent(side);
-			String strInit = current.getAdjacent(init);
-			if(ref2 == null && ref1 == null 
-			  && strInit == null && strSide == null) {
+			PuzzleItem item = it.next();
+			String border = item.getAdjacent(edge);
+			String closeRef = item.getAdjacent(refSide);
+			if(border.equals("VUOTO") && closeRef.equals(ref)){
 				it.remove();
-				return current;
-			}
-			else
-				if(ref1 != null && ref2 != null &&
-				 ref1.equals(strSide) && ref2.equals(strInit)) {
-					it.remove();
-					return current;
-				}
+				return item;
+			}	
 		}
 		return null;
 	}
@@ -67,15 +56,8 @@ public class Scrum implements Gruppo {
 			String line = ita.next();
 			String[] piece = line.split("\\t",-1);
 			PuzzleItem item = Puzzle.createPiece(piece);
-			for(int i=0; i<piece.length; i++)
-				System.out.print(piece[i] + " ");
 			mucchio.add(item);
-			System.out.println();
 		}
-	}
-
-	public Iterator<PuzzleItem> iterator(){
-		return mucchio.iterator();
 	}
 	
 	public boolean isEmpty(){

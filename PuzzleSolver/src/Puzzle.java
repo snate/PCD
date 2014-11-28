@@ -56,7 +56,7 @@ public class Puzzle implements GruppoOrdinabile {
 
 	@Override
 	public void fill(Path path) {
-		mucchio = new Scrum();
+		mucchio = new Heap();
 		mucchio.fill(path);
 	}
 

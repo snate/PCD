@@ -10,7 +10,7 @@ public class Puzzle implements GruppoOrdinabile {
 
 	private Gruppo mucchio;
 	private PuzzleItem[][] puzzle;
-	
+
 	private static class Piece implements PuzzleItem {
 		private String id;
 		private String car;
@@ -50,10 +50,10 @@ public class Puzzle implements GruppoOrdinabile {
 		public boolean equals(String str) {return id.equals(str); }
 	}
 
-	public static PuzzleItem createPiece(String str[]){
+	public static PuzzleItem createPiece(String[] str){
 		return new Piece(str);
 	}
-	
+
 	@Override
 	public void fill(Path path) {
 		mucchio = new Scrum();
@@ -64,28 +64,25 @@ public class Puzzle implements GruppoOrdinabile {
 		cols = mucchio.conta(createDir("n"));
 		rows = mucchio.conta(createDir("e"));
 	}
-	
+
 	@Override
 	public void sort() {
 		setDim();
 		puzzle = new PuzzleItem[rows][cols];
 		String ref = "VUOTO";
-		Dir edge = createDir("w"); 
-		int limit1 = rows;
-		int limit2 = cols;
+		Dir edge = createDir("w");
+		int limit = rows;
 			if(cols > rows) {
 				edge = createDir("n");
-				limit1 = cols;
-				limit2 = rows;
+				limit = cols;
 			}
-		for(int i = 0; i < limit1; i++) {
+		for(int i = 0; i < limit; i++) {
 			PuzzleItem borderPiece = mucchio.getEdgePiece(edge,edge.init(),ref);
 			setEdgePiece(edge, i, borderPiece);
-			ref = borderPiece.getAdjacent(edge.next());
+			ref = borderPiece.getId();
 		}
-		for(int i = 0; i < limit2; i++) {
-			for(int j = 0; j < limit1; j++)
-				orderLine(edge,i,j);
+		for(int i = 0; i < limit; i++) {
+				orderLine(edge,i);
 		}
 	}
 
@@ -95,15 +92,28 @@ public class Puzzle implements GruppoOrdinabile {
 		else
 			puzzle[position][0] = piece;
 	}
-	
-	private void orderLine(Dir) {
-		
+
+	private void orderLine(Dir top, int i) {
+		if(top.equals("n"))
+			for(int j = 1; j < rows; j++) {
+				PuzzleItem item = puzzle[j][i];
+				String prevId = item.getAdjacent(top.opposite());
+				PuzzleItem current = mucchio.getPiece(prevId);
+				puzzle[j][i] = current;
+			}
+		else
+			for(int j = 1; j < cols; j++) {
+				PuzzleItem item = puzzle[i][j-1];
+				String prevId = item.getAdjacent(top.opposite());
+				PuzzleItem current = mucchio.getPiece(prevId);
+				puzzle[i][j] = current;
+			}
 	}
-	
+
 	@Override
 	public void write(Path path){
 		String output = "";
-		
+
 		for(int i = 0; i < rows; i++)
 			for(int j = 0; j < cols; j++)
 				output += puzzle[i][j];
@@ -119,7 +129,7 @@ public class Puzzle implements GruppoOrdinabile {
 		output += "\n";
 
 		output += rows + " " + cols;
-		
+
 		InputOutput.writeContent(path, output);
 	}
 
@@ -128,7 +138,7 @@ public class Puzzle implements GruppoOrdinabile {
 		if(side.equals("r")) return rows;
 		else return cols;
 	}
-	
+
 	@Override
 	public boolean isEmpty() {
 		boolean somethingPresent = false;
