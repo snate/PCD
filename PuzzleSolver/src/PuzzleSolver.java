@@ -12,9 +12,9 @@ public class PuzzleSolver {
 		String pathOut = args[1];
 		Path inputPath = Paths.get(pathIn);
 		Path outputPath = Paths.get(pathOut);
-		if(Test.checkIn(inputPath)) {
+		if(!Test.checkIn(inputPath)) {
 			System.out.println("Bad input file");
-			return;	
+			return;
 		}
 		GruppoOrdinabile p = new Puzzle();
 		//Test test = new Test();					TEST

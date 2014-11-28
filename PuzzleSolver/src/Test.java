@@ -11,7 +11,7 @@ public class Test {
 	private int rows;
 	private int cols;
 	private String content;
-	private Pair[][] map; 
+	private Pair[][] map;
 	private static class Pair {
 		private int times = 1;
 		private String letter;
@@ -23,7 +23,7 @@ public class Test {
 	};
 	private ArrayList<Pair> encountered = new ArrayList<Pair>();
 	private Path outcome = Paths.get("test");
-	
+
 	public Path build(Path inputPath) {
 		content = InputOutput.readContent(inputPath).get(0);
 		setDim();
@@ -34,12 +34,10 @@ public class Test {
 		for(int i = 0; i < rows; i++) {
 			lines[i] = content.substring(0+cols*i, cols*(i+1));
 		}
-		for(int i = 0; i < rows; i++)
-			System.out.println(lines[i] + "|");
 		make(lines);
 		return outcome;
 	}
-	
+
 	private void setDim() {
 		int dim = content.length();
 		boolean square = false;
@@ -58,7 +56,7 @@ public class Test {
 		for(int i = 0; i < rows; i++)
 			for(int j = 0; j < cols; j++) {
 				String s = lines[i].substring(j,j+1);
-				map[i][j] = getPair(s);	
+				map[i][j] = getPair(s);
 			}
 		//prima riga
 		for(int i = 0; i < rows; i++)
@@ -84,10 +82,9 @@ public class Test {
 				if(i < rows-1 || j < cols-1)
 					inputForMain += "\n";
 		}
-		System.out.println(inputForMain);
 		InputOutput.writeContent(outcome,inputForMain);
 	}
-	
+
 	private Pair getPair(String s) {
 		Iterator<Pair> it = encountered.iterator();
 		Pair p = null;
@@ -95,27 +92,28 @@ public class Test {
 			Pair current = it.next();
 			if(s.equals(current.getLetter())) {
 				int n = current.increment();
-				System.out.println("Carattere: " + s + " " + n);
-				p = new Pair(s,n);	
+				p = new Pair(s,n);
 			}
 		}
 		if(p == null)
-			p = new Pair(s);	
+			p = new Pair(s);
 		encountered.add(p);
 		return p;
 	}
-	
+
 	public static boolean checkIn(Path inputPath) {
 		ArrayList<String> input = InputOutput.readContent(inputPath);
 		Iterator<String> it = input.iterator();
 		while(it.hasNext()) {
 			String line = it.next();
 			String[] piece = line.split("\\t",-1);
-			if(piece.length != 6) return false;
+			if(piece.length != 6) {
+				return false;
+			}
 		}
 		return true;
 	}
-	
+
 	public boolean checkOut(Path outputPath) {
 		boolean corretto = true;
 		ArrayList<String> prodotto = InputOutput.readContent(outputPath);
@@ -125,11 +123,10 @@ public class Test {
 		for(int i = 0; i < rows; i++){
 			confronto = "";
 			for(int j = 0; j < cols; j++) {
-				confronto += map[i][j].getLetter(); 
+				confronto += map[i][j].getLetter();
 				if(j != cols-1)
-					confronto += "\t";	
+					confronto += "\t";
 			}
-			System.out.println(confronto);
 			if(!confronto.equals(prodotto.get(2+i)))
 				corretto = false;
 		}

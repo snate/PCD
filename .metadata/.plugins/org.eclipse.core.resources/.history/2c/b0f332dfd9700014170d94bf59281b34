@@ -1,7 +1,0 @@
-O1	O	null	N1	R1	null
-N1	N	null	E1	E2	O1
-E1	E	null	null	P1	N1
-R1	R	O1	E2	null	null
-E2	E	N1
-P1	P	E1
-id_pezzo \t carattere \t id_nord \t id_est \t id_sud \t id_ovest

@@ -10,7 +10,7 @@ public class Puzzle implements GruppoOrdinabile {
 
 	private Gruppo mucchio;
 	private PuzzleItem[][] puzzle;
-	
+
 	private static class Piece implements PuzzleItem {
 		private String id;
 		private String car;
@@ -53,10 +53,9 @@ public class Puzzle implements GruppoOrdinabile {
 	public static PuzzleItem createPiece(String[] str){
 		return new Piece(str);
 	}
-	
+
 	@Override
 	public void fill(Path path) {
-		System.out.println(path);
 		mucchio = new Scrum();
 		mucchio.fill(path);
 	}
@@ -65,13 +64,13 @@ public class Puzzle implements GruppoOrdinabile {
 		cols = mucchio.conta(createDir("n"));
 		rows = mucchio.conta(createDir("e"));
 	}
-	
+
 	@Override
 	public void sort() {
 		setDim();
 		puzzle = new PuzzleItem[rows][cols];
 		String ref = "VUOTO";
-		Dir edge = createDir("w"); 
+		Dir edge = createDir("w");
 		int limit = rows;
 			if(cols > rows) {
 				edge = createDir("n");
@@ -93,7 +92,7 @@ public class Puzzle implements GruppoOrdinabile {
 		else
 			puzzle[position][0] = piece;
 	}
-	
+
 	private void orderLine(Dir top, int i) {
 		if(top.equals("n"))
 			for(int j = 1; j < rows; j++) {
@@ -110,11 +109,11 @@ public class Puzzle implements GruppoOrdinabile {
 				puzzle[i][j] = current;
 			}
 	}
-	
+
 	@Override
 	public void write(Path path){
 		String output = "";
-		
+
 		for(int i = 0; i < rows; i++)
 			for(int j = 0; j < cols; j++)
 				output += puzzle[i][j];
@@ -130,7 +129,7 @@ public class Puzzle implements GruppoOrdinabile {
 		output += "\n";
 
 		output += rows + " " + cols;
-		
+
 		InputOutput.writeContent(path, output);
 	}
 
@@ -139,7 +138,7 @@ public class Puzzle implements GruppoOrdinabile {
 		if(side.equals("r")) return rows;
 		else return cols;
 	}
-	
+
 	@Override
 	public boolean isEmpty() {
 		boolean somethingPresent = false;
