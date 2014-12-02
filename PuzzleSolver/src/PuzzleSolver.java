@@ -19,6 +19,7 @@ public class PuzzleSolver {
 		GruppoOrdinabile p = new Puzzle();
 		//Test test = new Test();					TEST
 		//inputPath = test.build(inputPath);		TEST
+		//Test.shuffle(inputPath);
 		p.fill(inputPath);
 		p.sort();
 		p.write(outputPath);

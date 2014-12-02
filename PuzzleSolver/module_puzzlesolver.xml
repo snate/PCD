@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_puzzlesolver" default="compile.module.puzzlesolver">
+  <dirname property="module.puzzlesolver.basedir" file="${ant.file.module_puzzlesolver}"/>
+  
+  <property name="module.jdk.home.puzzlesolver" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.puzzlesolver" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.puzzlesolver" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.puzzlesolver" value="-encoding UTF-8 -source 1.6 ${compiler.args}"/>
+  
+  <property name="puzzlesolver.output.dir" value="${module.puzzlesolver.basedir}/bin"/>
+  <property name="puzzlesolver.testoutput.dir" value="${module.puzzlesolver.basedir}/bin"/>
+  
+  <path id="puzzlesolver.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="puzzlesolver.module.production.classpath">
+    <path refid="${module.jdk.classpath.puzzlesolver}"/>
+  </path>
+  
+  <path id="puzzlesolver.runtime.production.module.classpath">
+    <pathelement location="${puzzlesolver.output.dir}"/>
+  </path>
+  
+  <path id="puzzlesolver.module.classpath">
+    <pathelement location="${puzzlesolver.output.dir}"/>
+    <path refid="${module.jdk.classpath.puzzlesolver}"/>
+  </path>
+  
+  <path id="puzzlesolver.runtime.module.classpath">
+    <pathelement location="${puzzlesolver.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.puzzlesolver">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.puzzlesolver">
+    <patternset refid="excluded.from.module.puzzlesolver"/>
+  </patternset>
+  
+  <path id="puzzlesolver.module.sourcepath">
+    <dirset dir="${module.puzzlesolver.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.puzzlesolver" depends="compile.module.puzzlesolver.production,compile.module.puzzlesolver.tests" description="Compile module PuzzleSolver"/>
+  
+  <target name="compile.module.puzzlesolver.production" depends="register.custom.compilers" description="Compile module PuzzleSolver; production classes">
+    <mkdir dir="${puzzlesolver.output.dir}"/>
+    <javac2 destdir="${puzzlesolver.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.puzzlesolver}/javac">
+      <compilerarg line="${compiler.args.puzzlesolver}"/>
+      <bootclasspath refid="puzzlesolver.module.bootclasspath"/>
+      <classpath refid="puzzlesolver.module.production.classpath"/>
+      <src refid="puzzlesolver.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.puzzlesolver"/>
+    </javac2>
+    
+    <copy todir="${puzzlesolver.output.dir}">
+      <fileset dir="${module.puzzlesolver.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.puzzlesolver.tests" depends="register.custom.compilers,compile.module.puzzlesolver.production" description="compile module PuzzleSolver; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.puzzlesolver" description="cleanup module">
+    <delete dir="${puzzlesolver.output.dir}"/>
+    <delete dir="${puzzlesolver.testoutput.dir}"/>
+  </target>
+</project>

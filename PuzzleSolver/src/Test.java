@@ -2,6 +2,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 /**
  * @author svalle
@@ -112,6 +113,28 @@ public class Test {
 			}
 		}
 		return true;
+	}
+
+	public static void shuffle(Path path) {
+		ArrayList<String> input = InputOutput.readContent(path);
+		int n = input.size();
+		ArrayList<String> shuffled = new ArrayList<String>();
+		for(int i = 0; i < n; i++) {
+			int row = randInt(input.size());
+			String elem = input.get(row);
+			shuffled.add(i, elem);
+			input.remove(row);
+		}
+		Iterator<String> it = shuffled.iterator();
+		String output = "";
+		while(it.hasNext())
+			output += it.next() + "\n";
+		InputOutput.writeContent(path, output);
+	}
+
+	private static int randInt(int n) {
+		Random rand = new Random();
+		return rand.nextInt(n);
 	}
 
 	public boolean checkOut(Path outputPath) {
