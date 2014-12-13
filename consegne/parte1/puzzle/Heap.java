@@ -1,14 +1,15 @@
+package puzzle;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- * 
+ *
  * @author svalle
  */
 public class Heap implements Gruppo {
 	private ArrayList<PuzzleItem> mucchio = new ArrayList<PuzzleItem>();
-	
+
 	@Override
 	public int conta(Dir side) {
 		int x = 0;
@@ -19,7 +20,7 @@ public class Heap implements Gruppo {
 		}
 		return x;
 	}
-	
+
 	@Override
 	public PuzzleItem getPiece(String id) {
 		Iterator<PuzzleItem> it = mucchio.iterator();
@@ -32,7 +33,7 @@ public class Heap implements Gruppo {
 		}
 		return null;
 	}
-	
+
 	@Override
 	public PuzzleItem getEdgePiece(Dir edge, Dir refSide, String ref){
 		Iterator<PuzzleItem> it = mucchio.iterator();
@@ -43,11 +44,11 @@ public class Heap implements Gruppo {
 			if(border.equals("VUOTO") && closeRef.equals(ref)){
 				it.remove();
 				return item;
-			}	
+			}
 		}
 		return null;
 	}
-	
+
 	@Override
 	public void fill(Path path) {
 		ArrayList<String> rows = InputOutput.readContent(path);
@@ -59,7 +60,7 @@ public class Heap implements Gruppo {
 			mucchio.add(item);
 		}
 	}
-	
+
 	public boolean isEmpty(){
 		return mucchio.isEmpty();
 	}

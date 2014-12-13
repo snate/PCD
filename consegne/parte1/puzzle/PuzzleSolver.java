@@ -1,3 +1,4 @@
+package puzzle;
 import java.nio.file.Path;
 import java.nio.file.Paths;/**
  * @author svalle

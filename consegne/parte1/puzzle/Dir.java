@@ -1,3 +1,4 @@
+package puzzle;
 /**
  * @author svalle
  */

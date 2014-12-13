@@ -1,3 +1,4 @@
+package puzzle;
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -12,7 +13,7 @@ import java.nio.file.Path;
  */
 public class InputOutput { //visibilità package
 	private static Charset charset = StandardCharsets.UTF_8;
-	
+
 	public static ArrayList<String> readContent(Path path){
 		ArrayList<String> content = new ArrayList<String>();
 		try (BufferedReader reader = Files.newBufferedReader(path,
@@ -27,7 +28,7 @@ public class InputOutput { //visibilità package
 		}
 		return null;
 	}
-	
+
 	public static void writeContent(Path path, String content) {
 		try (BufferedWriter writer = Files.newBufferedWriter(path, charset)) {
 		writer.write(content);
