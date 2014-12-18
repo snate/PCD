@@ -233,4 +233,18 @@ public class Test {
 			corretto = false;
 		return corretto;
 	}
+
+	public static void main(String[] args) {
+		String pathIn = args[0]; 					//primo argomento passato alla consolle
+		String pathOut = args[1];					//secondo argomento passato alla consolle
+		Path inputPath = Paths.get(pathIn);
+		Path outputPath = Paths.get(pathOut);
+		Test test = new Test();
+		inputPath = test.build(inputPath);
+		PuzzleSolver.main(args);
+		if(test.checkOut(outputPath))
+			System.out.println("OK");
+		else
+			System.out.println("ERRORE");
+	}
 }
