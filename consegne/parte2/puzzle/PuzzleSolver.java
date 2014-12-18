@@ -38,17 +38,11 @@ public class PuzzleSolver {
 			System.out.println("Bad input file");
 			return;									//termina, input non ben-formato
 		}
-		//Test test = new Test();					TEST
-		//inputPath = test.build(inputPath);		TEST
-		Test.shuffle(inputPath);					//ordina
+		Test.shuffle(inputPath);					//mescola
 		GruppoOrdinabile p = new Puzzle();			//crea un nuovo puzzle vuoto
 		p.fill(inputPath);							//preleva tutti i tasselli dal file di input
 		p.sort();									//ordina il puzzle
 		p.write(outputPath);						//scrivi l'output
-		//if(test.checkOut(outputPath))				TEST
-		//	System.out.println("OK");				TEST
-		//else										TEST
-		//	System.out.println("ERRORE");			TEST
 	}
 
 }

@@ -64,7 +64,7 @@ public class Heap implements Gruppo {
 			if(border.equals("VUOTO") && closeRef.equals(ref)){
 				it.remove();
 				return item;
-			}
+			}	
 		}
 		return null;
 	}
@@ -76,13 +76,36 @@ public class Heap implements Gruppo {
 	@Override
 	public void fill(Path path) {
 		ArrayList<String> rows = InputOutput.readContent(path);
-		Iterator<String> ita = rows.iterator();
-		while(ita.hasNext()){
-			String line = ita.next();
-			String[] piece = line.split("\\t",-1);
-			PuzzleItem item = Puzzle.createPiece(piece);
-			mucchio.add(item);
+		int n=1;
+		while(n*n < rows.size()) n++;
+		Filler[] f = new Filler[n];
+		for(int i = 0; i < n; i++) {
+			f[i] = new Filler(rows,i*n,(i+1)*n);
+			f.start();
 		}
+		for(int i = 0; i < n; i++) {
+			try {
+				f[i].join();
+			} catch(InterruptedException ie) {System.out.println("Programma interrotto"); }
+		}
+	}
+
+	private class Filler extends Thread {
+		private ArrayList<String> rows;
+		private int start;
+		private int end;
+		public Filler(ArrayList<String> rows, int a, int b) { this.rows = rows; start = a; end = b; }
+		public void run() {
+			if(end > rows.size()) end = rows.size();
+			for(int i = start; i < end; i++) {
+				String line = rows.get(i);
+				String[] piece = line.split("\\t", -1);
+				PuzzleItem item = Puzzle.createPiece(piece);
+				mucchio.add(item);
+			}
+		}
+
+		public boolean isEmpty() { return rows.isEmpty(); }
 	}
 
 	/**

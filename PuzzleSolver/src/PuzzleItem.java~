@@ -1,4 +1,3 @@
-package puzzle;
 /**
  * <p>Interfaccia che rappresenta un tassello. Si può:</p>
  * <ul>

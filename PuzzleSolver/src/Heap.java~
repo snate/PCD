@@ -1,5 +1,5 @@
-package puzzle;
-import java.nio.file.Path;
+ipackage puzzle;
+mport java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Iterator;
 
