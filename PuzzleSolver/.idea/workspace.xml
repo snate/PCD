@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d55eed05-313a-4f2f-8b12-1aced1f06d8c" name="Default" comment="" />
+    <list default="true" id="d55eed05-313a-4f2f-8b12-1aced1f06d8c" name="Default" comment="Design improvings for Dir class; added enum for better coding">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Dir.java" afterPath="$PROJECT_DIR$/src/Dir.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="PuzzleSolver.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -25,11 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Puzzle.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Puzzle.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Puzzle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8532609" vertical-offset="475" max-vertical-offset="1395">
-              <caret line="274" column="4" selection-start-line="274" selection-start-column="4" selection-end-line="274" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="434" max-vertical-offset="1395">
+              <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
               <folding>
                 <element signature="method#Piece#0;class#Piece#0;class#Puzzle#0" expanded="false" />
                 <element signature="docComment;method#getId#0;class#Piece#0;class#Puzzle#0" expanded="false" />
@@ -63,14 +67,45 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Dir.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Dir.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.41860464" vertical-offset="0" max-vertical-offset="645">
+              <caret line="100" column="1" selection-start-line="100" selection-start-column="1" selection-end-line="100" selection-end-column="1" />
+              <folding>
+                <element signature="docComment;class#Dir#0" expanded="false" />
+                <element signature="docComment;method#Dir#0;class#Dir#0" expanded="false" />
+                <element signature="method#Dir#0;class#Dir#0" expanded="false" />
+                <element signature="docComment;method#Dir#1;class#Dir#0" expanded="false" />
+                <element signature="docComment;method#toString#0;class#Dir#0" expanded="false" />
+                <element signature="method#toString#0;class#Dir#0" expanded="false" />
+                <element signature="docComment;method#equals#0;class#Dir#0" expanded="false" />
+                <element signature="docComment;method#next#0;class#Dir#0" expanded="false" />
+                <element signature="method#next#0;class#Dir#0" expanded="false" />
+                <element signature="docComment;method#init#0;class#Dir#0" expanded="false" />
+                <element signature="method#init#0;class#Dir#0" expanded="false" />
+                <element signature="docComment;method#opposite#0;class#Dir#0" expanded="false" />
+                <element signature="method#opposite#0;class#Dir#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="snate &lt;sebastiano.valle@studenti.unipd.it&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/PuzzleSolver.iml" />
         <option value="$PROJECT_DIR$/src/Test.java" />
-        <option value="$PROJECT_DIR$/src/Dir.java" />
         <option value="$PROJECT_DIR$/src/GruppoOrdinabile.java" />
         <option value="$PROJECT_DIR$/src/Gruppo.java" />
         <option value="$PROJECT_DIR$/src/Heap.java" />
@@ -78,16 +113,17 @@
         <option value="$PROJECT_DIR$/src/PuzzleSolver.java" />
         <option value="$PROJECT_DIR$/src/PuzzleItem.java" />
         <option value="$PROJECT_DIR$/src/Puzzle.java" />
+        <option value="$PROJECT_DIR$/src/Dir.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="65" />
-    <option name="y" value="24" />
-    <option name="width" value="927" />
-    <option name="height" value="1056" />
+    <option name="y" value="-4" />
+    <option name="width" value="1855" />
+    <option name="height" value="1084" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -110,6 +146,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -158,8 +196,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -245,19 +281,6 @@
       </ExternalSystemSettings>
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -284,6 +307,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -358,12 +394,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="927" height="1056" extended-state="4" />
-    <editor active="false" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299595" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -371,20 +407,20 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31983805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24703345" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24690028" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31983805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -402,10 +438,12 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="Design improvings for Dir class; added enum for better coding" />
+    <option name="LAST_COMMIT_MESSAGE" value="Design improvings for Dir class; added enum for better coding" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -414,6 +452,42 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Puzzle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1395">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="method#Piece#0;class#Piece#0;class#Puzzle#0" expanded="false" />
+            <element signature="docComment;method#getId#0;class#Piece#0;class#Puzzle#0" expanded="false" />
+            <element signature="docComment;method#getAdjacent#0;class#Piece#0;class#Puzzle#0" expanded="false" />
+            <element signature="method#getAdjacent#0;class#Piece#0;class#Puzzle#0" expanded="false" />
+            <element signature="docComment;method#toString#0;class#Piece#0;class#Puzzle#0" expanded="false" />
+            <element signature="docComment;method#equals#0;class#Piece#0;class#Puzzle#0" expanded="false" />
+            <element signature="docComment;method#createPiece#0;class#Puzzle#0" expanded="false" />
+            <element signature="docComment;method#fill#0;class#Puzzle#0" expanded="false" />
+            <element signature="method#fill#0;class#Puzzle#0" expanded="false" />
+            <element signature="docComment;method#setDim#0;class#Puzzle#0" expanded="false" />
+            <element signature="docComment;method#sort#0;class#Puzzle#0" expanded="false" />
+            <element signature="method#sort#0;class#Puzzle#0" expanded="false" />
+            <element signature="docComment;method#setEdgePiece#0;class#Puzzle#0" expanded="false" />
+            <element signature="method#setEdgePiece#0;class#Puzzle#0" expanded="false" />
+            <element signature="docComment;method#orderLine#0;class#Puzzle#0" expanded="false" />
+            <element signature="method#orderLine#0;class#Puzzle#0" expanded="false" />
+            <element signature="docComment;method#write#0;class#Puzzle#0" expanded="false" />
+            <element signature="method#write#0;class#Puzzle#0" expanded="false" />
+            <element signature="docComment;method#conta#0;class#Puzzle#0" expanded="false" />
+            <element signature="method#conta#0;class#Puzzle#0" expanded="false" />
+            <element signature="docComment;method#isEmpty#0;class#Puzzle#0" expanded="false" />
+            <element signature="method#isEmpty#0;class#Puzzle#0" expanded="false" />
+            <element signature="docComment;method#getPiece#0;class#Puzzle#0" expanded="false" />
+            <element signature="method#getPiece#0;class#Puzzle#0" expanded="false" />
+            <element signature="docComment;method#getEdgePiece#0;class#Puzzle#0" expanded="false" />
+            <element signature="method#getEdgePiece#0;class#Puzzle#0" expanded="false" />
+            <element signature="docComment;method#createDir#0;class#Puzzle#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Puzzle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
@@ -497,7 +571,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="555">
           <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-          <folding />
+          <folding>
+            <element signature="docComment;method#readContent#0;class#InputOutput#0" expanded="false" />
+            <element signature="method#readContent#0;class#InputOutput#0" expanded="false" />
+            <element signature="docComment;method#writeContent#0;class#InputOutput#0" expanded="false" />
+            <element signature="method#writeContent#0;class#InputOutput#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -569,7 +648,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="936">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -608,30 +686,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dir.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3097826" vertical-offset="0" max-vertical-offset="920">
-          <caret line="67" column="4" selection-start-line="67" selection-start-column="4" selection-end-line="67" selection-end-column="4" />
-          <folding>
-            <element signature="docComment;method#Dir#0;class#Dir#0" expanded="false" />
-            <element signature="docComment;method#Dir#1;class#Dir#0" expanded="false" />
-            <element signature="docComment;method#toString#0;class#Dir#0" expanded="false" />
-            <element signature="docComment;method#equals#0;class#Dir#0" expanded="false" />
-            <element signature="docComment;method#next#0;class#Dir#0" expanded="false" />
-            <element signature="method#next#0;class#Dir#0" expanded="false" />
-            <element signature="docComment;method#init#0;class#Dir#0" expanded="false" />
-            <element signature="method#init#0;class#Dir#0" expanded="false" />
-            <element signature="docComment;method#opposite#0;class#Dir#0" expanded="false" />
-            <element signature="method#opposite#0;class#Dir#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GruppoOrdinabile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
           <caret line="7" column="82" selection-start-line="7" selection-start-column="82" selection-end-line="7" selection-end-column="82" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -669,10 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#main#0;class#PuzzleSolver#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -694,8 +748,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Puzzle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8532609" vertical-offset="475" max-vertical-offset="1395">
-          <caret line="274" column="4" selection-start-line="274" selection-start-column="4" selection-end-line="274" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="434" max-vertical-offset="1395">
+          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
           <folding>
             <element signature="method#Piece#0;class#Piece#0;class#Puzzle#0" expanded="false" />
             <element signature="docComment;method#getId#0;class#Piece#0;class#Puzzle#0" expanded="false" />
@@ -724,6 +778,28 @@
             <element signature="docComment;method#getEdgePiece#0;class#Puzzle#0" expanded="false" />
             <element signature="method#getEdgePiece#0;class#Puzzle#0" expanded="false" />
             <element signature="docComment;method#createDir#0;class#Puzzle#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Dir.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41860464" vertical-offset="0" max-vertical-offset="645">
+          <caret line="100" column="1" selection-start-line="100" selection-start-column="1" selection-end-line="100" selection-end-column="1" />
+          <folding>
+            <element signature="docComment;class#Dir#0" expanded="false" />
+            <element signature="docComment;method#Dir#0;class#Dir#0" expanded="false" />
+            <element signature="method#Dir#0;class#Dir#0" expanded="false" />
+            <element signature="docComment;method#Dir#1;class#Dir#0" expanded="false" />
+            <element signature="docComment;method#toString#0;class#Dir#0" expanded="false" />
+            <element signature="method#toString#0;class#Dir#0" expanded="false" />
+            <element signature="docComment;method#equals#0;class#Dir#0" expanded="false" />
+            <element signature="docComment;method#next#0;class#Dir#0" expanded="false" />
+            <element signature="method#next#0;class#Dir#0" expanded="false" />
+            <element signature="docComment;method#init#0;class#Dir#0" expanded="false" />
+            <element signature="method#init#0;class#Dir#0" expanded="false" />
+            <element signature="docComment;method#opposite#0;class#Dir#0" expanded="false" />
+            <element signature="method#opposite#0;class#Dir#0" expanded="false" />
           </folding>
         </state>
       </provider>
