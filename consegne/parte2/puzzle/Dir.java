@@ -11,12 +11,14 @@ public class Dir {
 	 * @param d	lettera che indica a quale punto cardinale corrisponde una certa istanza di Dir
 	 */
 	public Dir(String d) {
-		switch (d) {
-			case "n": dir = CDir.NORTH;
-			case "e": dir = CDir.EAST;
-			case "w": dir = CDir.WEST;
-			case "s": dir = CDir.SOUTH;
-		}
+		if(d.equals("n"))
+			dir = CDir.NORTH;
+		if(d.equals("e"))
+			dir = CDir.EAST;
+		if(d.equals("w"))
+			dir = CDir.WEST;
+		if(d.equals("s"))
+			dir = CDir.SOUTH;
 	}
 	/**
 	 * <p>Costruttore di Dir</p>
@@ -30,10 +32,10 @@ public class Dir {
 	 */
 	public String toString() {
 		switch(dir) {
-			case NORTH: return "n";
-			case EAST: return "e";
-			case WEST: return "w";
-			case SOUTH: return "s";
+			case NORTH: return new String("n");
+			case EAST: return new String("e");
+			case WEST: return new String("w");
+			case SOUTH: return new String("s");
 		}
 		return null;
 	}

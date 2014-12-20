@@ -2,7 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d55eed05-313a-4f2f-8b12-1aced1f06d8c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Heap.java" afterPath="$PROJECT_DIR$/src/Heap.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/puzzle/Dir.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Dir.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Gruppo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/GruppoOrdinabile.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Heap.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/InputOutput.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Puzzle.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/PuzzleItem.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/PuzzleSolver.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Test.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../consegne/parte2/Documentazione/Relazione - 2.odt" afterPath="$PROJECT_DIR$/../consegne/parte2/Documentazione/Relazione - 2.odt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../consegne/parte2/puzzle/Dir.java" afterPath="$PROJECT_DIR$/../consegne/parte2/puzzle/Dir.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../consegne/parte2/puzzle/Heap.java" afterPath="$PROJECT_DIR$/../consegne/parte2/puzzle/Heap.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../consegne/parte2/puzzle/Puzzle.java" afterPath="$PROJECT_DIR$/../consegne/parte2/puzzle/Puzzle.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../consegne/parte1/tasselli.txt" afterPath="$PROJECT_DIR$/../consegne/parte1/tasselli.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../consegne/parte2/tasselli.txt" afterPath="$PROJECT_DIR$/../consegne/parte2/tasselli.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PuzzleSolver.iws" />
@@ -29,15 +45,16 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="Puzzle.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Puzzle.java">
+        <entry file="file://$PROJECT_DIR$/src/puzzle/Puzzle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="434" max-vertical-offset="1395">
-              <caret line="142" column="45" selection-start-line="142" selection-start-column="45" selection-end-line="142" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1830">
+              <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
               <folding>
-                <element signature="method#Piece#0;class#Piece#0;class#Puzzle#0" expanded="false" />
+                <element signature="docComment;class#Puzzle#0" expanded="false" />
+                <element signature="docComment;class#Piece#0;class#Puzzle#0" expanded="false" />
+                <element signature="docComment;method#Piece#0;class#Piece#0;class#Puzzle#0" expanded="false" />
                 <element signature="docComment;method#getId#0;class#Piece#0;class#Puzzle#0" expanded="false" />
                 <element signature="docComment;method#getAdjacent#0;class#Piece#0;class#Puzzle#0" expanded="false" />
-                <element signature="method#getAdjacent#0;class#Piece#0;class#Puzzle#0" expanded="false" />
                 <element signature="docComment;method#toString#0;class#Piece#0;class#Puzzle#0" expanded="false" />
                 <element signature="docComment;method#equals#0;class#Piece#0;class#Puzzle#0" expanded="false" />
                 <element signature="docComment;method#createPiece#0;class#Puzzle#0" expanded="false" />
@@ -45,11 +62,9 @@
                 <element signature="method#fill#0;class#Puzzle#0" expanded="false" />
                 <element signature="docComment;method#setDim#0;class#Puzzle#0" expanded="false" />
                 <element signature="docComment;method#sort#0;class#Puzzle#0" expanded="false" />
-                <element signature="method#sort#0;class#Puzzle#0" expanded="false" />
-                <element signature="docComment;method#setEdgePiece#0;class#Puzzle#0" expanded="false" />
-                <element signature="method#setEdgePiece#0;class#Puzzle#0" expanded="false" />
-                <element signature="docComment;method#orderLine#0;class#Puzzle#0" expanded="false" />
-                <element signature="method#orderLine#0;class#Puzzle#0" expanded="false" />
+                <element signature="class#FirstLineSorter#0;class#Puzzle#0" expanded="false" />
+                <element signature="docComment;method#sortLine#0;class#Puzzle#0" expanded="false" />
+                <element signature="method#sortLine#0;class#Puzzle#0" expanded="false" />
                 <element signature="docComment;method#write#0;class#Puzzle#0" expanded="false" />
                 <element signature="method#write#0;class#Puzzle#0" expanded="false" />
                 <element signature="docComment;method#conta#0;class#Puzzle#0" expanded="false" />
@@ -67,20 +82,20 @@
         </entry>
       </file>
       <file leaf-file-name="Heap.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Heap.java">
+        <entry file="file://$PROJECT_DIR$/src/puzzle/Heap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2803838" vertical-offset="37" max-vertical-offset="975">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.7356077" vertical-offset="135" max-vertical-offset="1140">
+              <caret line="108" column="32" selection-start-line="108" selection-start-column="32" selection-end-line="108" selection-end-column="32" />
               <folding>
+                <element signature="docComment;class#Heap#0" expanded="false" />
                 <element signature="docComment;method#conta#0;class#Heap#0" expanded="false" />
                 <element signature="docComment;method#getPiece#0;class#Heap#0" expanded="false" />
-                <element signature="method#getPiece#0;class#Heap#0" expanded="false" />
                 <element signature="docComment;method#getEdgePiece#0;class#Heap#0" expanded="false" />
                 <element signature="method#getEdgePiece#0;class#Heap#0" expanded="false" />
                 <element signature="docComment;method#fill#0;class#Heap#0" expanded="false" />
                 <element signature="method#fill#0;class#Heap#0" expanded="false" />
-                <element signature="e#3117#3118#0" expanded="true" />
-                <element signature="e#3148#3149#0" expanded="true" />
+                <element signature="docComment;class#Filler#0;class#Heap#0" expanded="false" />
+                <element signature="docComment;method#isEmpty#0;class#Heap#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -109,14 +124,17 @@
         <option value="$PROJECT_DIR$/src/PuzzleSolver.java" />
         <option value="$PROJECT_DIR$/src/Test.java" />
         <option value="$PROJECT_DIR$/src/Heap.java" />
+        <option value="$PROJECT_DIR$/src/puzzle/Dir.java" />
+        <option value="$PROJECT_DIR$/src/puzzle/Puzzle.java" />
+        <option value="$PROJECT_DIR$/src/puzzle/Heap.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="65" />
-    <option name="y" value="-4" />
+    <option name="y" value="24" />
     <option name="width" value="1855" />
-    <option name="height" value="1084" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -141,7 +159,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -174,6 +191,10 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="puzzle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -191,6 +212,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -276,6 +298,19 @@
       </ExternalSystemSettings>
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -302,19 +337,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -422,7 +444,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -431,24 +453,24 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953367" sideWeight="0.5002758" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299595" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31917098" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953367" sideWeight="0.4997242" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25261998" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31917098" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -472,7 +494,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="10" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -481,134 +503,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Puzzle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1395">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="method#Piece#0;class#Piece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#getId#0;class#Piece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#getAdjacent#0;class#Piece#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#getAdjacent#0;class#Piece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#toString#0;class#Piece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#equals#0;class#Piece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#createPiece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#fill#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#fill#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#setDim#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#sort#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#sort#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#setEdgePiece#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#setEdgePiece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#orderLine#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#orderLine#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#write#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#write#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#conta#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#conta#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#isEmpty#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#isEmpty#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#getPiece#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#getPiece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#getEdgePiece#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#getEdgePiece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#createDir#0;class#Puzzle#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Puzzle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="method#Piece#0;class#Piece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#getId#0;class#Piece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#getAdjacent#0;class#Piece#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#getAdjacent#0;class#Piece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#toString#0;class#Piece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#equals#0;class#Piece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#createPiece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#fill#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#fill#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#setDim#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#sort#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#sort#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#setEdgePiece#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#setEdgePiece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#orderLine#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#orderLine#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#write#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#write#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#conta#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#conta#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#isEmpty#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#isEmpty#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#getPiece#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#getPiece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#getEdgePiece#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#getEdgePiece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#createDir#0;class#Puzzle#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Puzzle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="method#Piece#0;class#Piece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#getId#0;class#Piece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#getAdjacent#0;class#Piece#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#getAdjacent#0;class#Piece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#toString#0;class#Piece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#equals#0;class#Piece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#createPiece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#fill#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#fill#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#setDim#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#sort#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#sort#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#setEdgePiece#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#setEdgePiece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#orderLine#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#orderLine#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#write#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#write#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#conta#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#conta#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#isEmpty#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#isEmpty#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#getPiece#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#getPiece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#getEdgePiece#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#getEdgePiece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#createDir#0;class#Puzzle#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1245">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/InputOutput.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="555">
-          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-          <folding>
-            <element signature="docComment;method#readContent#0;class#InputOutput#0" expanded="false" />
-            <element signature="method#readContent#0;class#InputOutput#0" expanded="false" />
-            <element signature="docComment;method#writeContent#0;class#InputOutput#0" expanded="false" />
-            <element signature="method#writeContent#0;class#InputOutput#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/PuzzleSolver.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
@@ -680,63 +574,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GruppoOrdinabile.java">
+    <entry file="file://$PROJECT_DIR$/src/puzzle/Dir.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
-          <caret line="7" column="82" selection-start-line="7" selection-start-column="82" selection-end-line="7" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Gruppo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1607717" vertical-offset="0" max-vertical-offset="933">
-          <caret line="10" column="8" selection-start-line="3" selection-start-column="3" selection-end-line="10" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PuzzleItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08038585" vertical-offset="0" max-vertical-offset="933">
-          <caret line="5" column="59" selection-start-line="5" selection-start-column="59" selection-end-line="5" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/InputOutput.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14392324" vertical-offset="0" max-vertical-offset="938">
-          <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.25586355" vertical-offset="0" max-vertical-offset="938">
+          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
           <folding>
-            <element signature="docComment;class#InputOutput#0" expanded="false" />
-            <element signature="docComment;method#readContent#0;class#InputOutput#0" expanded="false" />
-            <element signature="method#readContent#0;class#InputOutput#0" expanded="false" />
-            <element signature="docComment;method#writeContent#0;class#InputOutput#0" expanded="false" />
-            <element signature="method#writeContent#0;class#InputOutput#0" expanded="false" />
+            <element signature="docComment;method#equals#0;class#Dir#0" expanded="false" />
+            <element signature="docComment;method#next#0;class#Dir#0" expanded="false" />
+            <element signature="method#next#0;class#Dir#0" expanded="false" />
+            <element signature="docComment;method#init#0;class#Dir#0" expanded="false" />
+            <element signature="method#init#0;class#Dir#0" expanded="false" />
+            <element signature="docComment;method#opposite#0;class#Dir#0" expanded="false" />
+            <element signature="method#opposite#0;class#Dir#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PuzzleSolver.java">
+    <entry file="file://$PROJECT_DIR$/src/puzzle/Puzzle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36780384" vertical-offset="0" max-vertical-offset="938">
-          <caret line="42" column="61" selection-start-line="42" selection-start-column="61" selection-end-line="42" selection-end-column="61" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1830">
+          <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#main#0;class#PuzzleSolver#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Puzzle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="434" max-vertical-offset="1395">
-          <caret line="142" column="45" selection-start-line="142" selection-start-column="45" selection-end-line="142" selection-end-column="45" />
-          <folding>
-            <element signature="method#Piece#0;class#Piece#0;class#Puzzle#0" expanded="false" />
+            <element signature="docComment;class#Puzzle#0" expanded="false" />
+            <element signature="docComment;class#Piece#0;class#Puzzle#0" expanded="false" />
+            <element signature="docComment;method#Piece#0;class#Piece#0;class#Puzzle#0" expanded="false" />
             <element signature="docComment;method#getId#0;class#Piece#0;class#Puzzle#0" expanded="false" />
             <element signature="docComment;method#getAdjacent#0;class#Piece#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#getAdjacent#0;class#Piece#0;class#Puzzle#0" expanded="false" />
             <element signature="docComment;method#toString#0;class#Piece#0;class#Puzzle#0" expanded="false" />
             <element signature="docComment;method#equals#0;class#Piece#0;class#Puzzle#0" expanded="false" />
             <element signature="docComment;method#createPiece#0;class#Puzzle#0" expanded="false" />
@@ -744,11 +607,9 @@
             <element signature="method#fill#0;class#Puzzle#0" expanded="false" />
             <element signature="docComment;method#setDim#0;class#Puzzle#0" expanded="false" />
             <element signature="docComment;method#sort#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#sort#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#setEdgePiece#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#setEdgePiece#0;class#Puzzle#0" expanded="false" />
-            <element signature="docComment;method#orderLine#0;class#Puzzle#0" expanded="false" />
-            <element signature="method#orderLine#0;class#Puzzle#0" expanded="false" />
+            <element signature="class#FirstLineSorter#0;class#Puzzle#0" expanded="false" />
+            <element signature="docComment;method#sortLine#0;class#Puzzle#0" expanded="false" />
+            <element signature="method#sortLine#0;class#Puzzle#0" expanded="false" />
             <element signature="docComment;method#write#0;class#Puzzle#0" expanded="false" />
             <element signature="method#write#0;class#Puzzle#0" expanded="false" />
             <element signature="docComment;method#conta#0;class#Puzzle#0" expanded="false" />
@@ -764,77 +625,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test.java">
+    <entry file="file://$PROJECT_DIR$/src/puzzle/Heap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67164177" vertical-offset="0" max-vertical-offset="938">
-          <caret line="237" column="33" selection-start-line="237" selection-start-column="33" selection-end-line="237" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.7356077" vertical-offset="135" max-vertical-offset="1140">
+          <caret line="108" column="32" selection-start-line="108" selection-start-column="32" selection-end-line="108" selection-end-column="32" />
           <folding>
-            <element signature="docComment;class#Pair#0;class#Test#0" expanded="false" />
-            <element signature="class#Pair#0;class#Test#0" expanded="false" />
-            <element signature="docComment;method#Pair#0;class#Pair#0;class#Test#0" expanded="false" />
-            <element signature="docComment;method#Pair#1;class#Pair#0;class#Test#0" expanded="false" />
-            <element signature="docComment;method#toString#0;class#Pair#0;class#Test#0" expanded="false" />
-            <element signature="docComment;method#getLetter#0;class#Pair#0;class#Test#0" expanded="false" />
-            <element signature="docComment;method#getTimes#0;class#Pair#0;class#Test#0" expanded="false" />
-            <element signature="e#1705#1711#0" expanded="true" />
-            <element signature="docComment;method#build#0;class#Test#0" expanded="false" />
-            <element signature="method#build#0;class#Test#0" expanded="false" />
-            <element signature="docComment;method#setDim#0;class#Test#0" expanded="false" />
-            <element signature="method#setDim#0;class#Test#0" expanded="false" />
-            <element signature="docComment;method#make#0;class#Test#0" expanded="false" />
-            <element signature="method#make#0;class#Test#0" expanded="false" />
-            <element signature="e#3939#4013#0" expanded="false" />
-            <element signature="docComment;method#getPair#0;class#Test#0" expanded="false" />
-            <element signature="method#getPair#0;class#Test#0" expanded="false" />
-            <element signature="docComment;method#checkIn#0;class#Test#0" expanded="false" />
-            <element signature="method#checkIn#0;class#Test#0" expanded="false" />
-            <element signature="docComment;method#shuffle#0;class#Test#0" expanded="false" />
-            <element signature="method#shuffle#0;class#Test#0" expanded="false" />
-            <element signature="e#5830#5838#0" expanded="true" />
-            <element signature="docComment;method#randInt#0;class#Test#0" expanded="false" />
-            <element signature="method#randInt#0;class#Test#0" expanded="false" />
-            <element signature="docComment;method#checkOut#0;class#Test#0" expanded="false" />
-            <element signature="method#checkOut#0;class#Test#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dir.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28784648" vertical-offset="0" max-vertical-offset="938">
-          <caret line="100" column="1" selection-start-line="100" selection-start-column="1" selection-end-line="100" selection-end-column="1" />
-          <folding>
-            <element signature="docComment;class#Dir#0" expanded="false" />
-            <element signature="docComment;method#Dir#0;class#Dir#0" expanded="false" />
-            <element signature="method#Dir#0;class#Dir#0" expanded="false" />
-            <element signature="docComment;method#Dir#1;class#Dir#0" expanded="false" />
-            <element signature="docComment;method#toString#0;class#Dir#0" expanded="false" />
-            <element signature="method#toString#0;class#Dir#0" expanded="false" />
-            <element signature="docComment;method#equals#0;class#Dir#0" expanded="false" />
-            <element signature="docComment;method#next#0;class#Dir#0" expanded="false" />
-            <element signature="method#next#0;class#Dir#0" expanded="false" />
-            <element signature="docComment;method#init#0;class#Dir#0" expanded="false" />
-            <element signature="method#init#0;class#Dir#0" expanded="false" />
-            <element signature="docComment;method#opposite#0;class#Dir#0" expanded="false" />
-            <element signature="method#opposite#0;class#Dir#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Heap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2803838" vertical-offset="37" max-vertical-offset="975">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
+            <element signature="docComment;class#Heap#0" expanded="false" />
             <element signature="docComment;method#conta#0;class#Heap#0" expanded="false" />
             <element signature="docComment;method#getPiece#0;class#Heap#0" expanded="false" />
-            <element signature="method#getPiece#0;class#Heap#0" expanded="false" />
             <element signature="docComment;method#getEdgePiece#0;class#Heap#0" expanded="false" />
             <element signature="method#getEdgePiece#0;class#Heap#0" expanded="false" />
             <element signature="docComment;method#fill#0;class#Heap#0" expanded="false" />
             <element signature="method#fill#0;class#Heap#0" expanded="false" />
-            <element signature="e#3117#3118#0" expanded="true" />
-            <element signature="e#3148#3149#0" expanded="true" />
+            <element signature="docComment;class#Filler#0;class#Heap#0" expanded="false" />
+            <element signature="docComment;method#isEmpty#0;class#Heap#0" expanded="false" />
           </folding>
         </state>
       </provider>

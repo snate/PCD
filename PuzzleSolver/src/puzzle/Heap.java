@@ -22,6 +22,8 @@ public class Heap implements Gruppo {
 		Iterator<PuzzleItem> it = mucchio.iterator();
 		while(it.hasNext()){
 			PuzzleItem item = it.next();
+			System.out.println(item);
+			System.out.println(side + " - " + item.getAdjacent(side));
 			if(item.getAdjacent(side).equals("VUOTO")) x++;
 		}
 		return x;
@@ -81,7 +83,7 @@ public class Heap implements Gruppo {
 		Filler[] f = new Filler[n];
 		for(int i = 0; i < n; i++) {
 			f[i] = new Filler(rows,i*n,(i+1)*n);
-			f.start();
+			f[i].start();
 		}
 		for(int i = 0; i < n; i++) {
 			try {
@@ -90,6 +92,9 @@ public class Heap implements Gruppo {
 		}
 	}
 
+	/**
+	 * <p>Classe che rappresenta un flusso di controllo che concorre a riempire il mucchio.</p>
+	 */
 	private class Filler extends Thread {
 		private ArrayList<String> rows;
 		private int start;
@@ -101,7 +106,12 @@ public class Heap implements Gruppo {
 				String line = rows.get(i);
 				String[] piece = line.split("\\t", -1);
 				PuzzleItem item = Puzzle.createPiece(piece);
-				mucchio.add(item);
+				synchronized (this) {
+					for(int j=0; j < piece.length; j++)
+						System.out.print(piece[j] + " - ");
+					System.out.println();
+					mucchio.add(item);
+				}
 			}
 		}
 

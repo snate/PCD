@@ -37,6 +37,9 @@ public class Puzzle implements GruppoOrdinabile {
 			east = str[3];
 			south = str[4];
 			west = str[5];
+			for(int i=0; i < str.length; i++)
+				System.out.print(str[i] + " - ");
+			System.out.println();
 		}
 		/**
 		 * <p>Metodo che restituisce l'id dell'istanza del tassello.</p>
@@ -52,16 +55,14 @@ public class Puzzle implements GruppoOrdinabile {
 		 */
 		@Override
 		public String getAdjacent(Dir dir){
-			switch(dir.toString()){
-			case "n":
+			if(dir.equals("n"))
 				return north;
-			case "e":
+			if(dir.equals("e"))
 				return east;
-			case "w":
+			if(dir.equals("w"))
 				return west;
-			case "s":
+			if(dir.equals("s"))
 				return south;
-			}
 			return null;
 		}
 		/**
@@ -118,34 +119,55 @@ public class Puzzle implements GruppoOrdinabile {
 	public void sort() {
 		setDim();
 		puzzle = new PuzzleItem[rows][cols];
-		String ref = "VUOTO";
 		Dir edge = createDir("w");
 		int limit = rows;
 			if(cols > rows) {
 				edge = createDir("n");
 				limit = cols;
 			}
+		new FirstLineSorter(edge,limit).start();
 		for(int i = 0; i < limit; i++) {
-			PuzzleItem borderPiece = mucchio.getEdgePiece(edge,edge.init(),ref);
-			setEdgePiece(edge, i, borderPiece);
-			ref = borderPiece.getId();
-		}
-		for(int i = 0; i < limit; i++) {
-				orderLine(edge,i);
+				sortLine(edge, i);
 		}
 	}
 
 	/**
-	 * <p>Metodo che colloca un tassello sul bordo del puzzle.</p>
-	 * @param edge	bordo sul quale sta il tassello
-	 * @param position	posizione (la prima è 0) del tassello sul bordo
-	 * @param piece	tassello da collocare
+	 * <p>Classe che gestisce il flusso di controllo che colloca i tasselli sulla prima linea (riga o colonna, a seconda
+	 * delle dimensioni del puzzle).</p>
 	 */
-	private void setEdgePiece(Dir edge, int position, PuzzleItem piece) {
-		if(edge.equals("n"))
-			puzzle[0][position] = piece;
-		else
-			puzzle[position][0] = piece;
+	private class FirstLineSorter extends Thread {
+		Dir edge;
+		int limit;
+		public FirstLineSorter(Dir edge, int limit) {
+			this.edge = edge;
+			this.limit = limit;
+		}
+		public void run() {
+			for(int i = 0; i < limit; i++) {
+				String ref = "VUOTO";
+				PuzzleItem borderPiece;
+				synchronized (mucchio) {
+					borderPiece = mucchio.getEdgePiece(edge,edge.init(),ref);
+				}
+				setEdgePiece(i, borderPiece);
+				ref = borderPiece.getId();
+			}
+		}
+		/**
+		 * <p>Metodo che colloca un tassello sul bordo del puzzle.</p>
+		 * @param position	posizione (la prima è 0) del tassello sul bordo
+		 * @param piece	tassello da collocare
+		 */
+		private void setEdgePiece(int position, PuzzleItem piece) {
+			if(edge.equals("n")) {
+				puzzle[0][position] = piece;
+				puzzle.notifyAll();
+			}
+			else {
+				puzzle[position][0] = piece;
+				puzzle.notifyAll();
+			}
+		}
 	}
 
 	/**
@@ -154,7 +176,7 @@ public class Puzzle implements GruppoOrdinabile {
 	 * @param top	lato del quale sono riempite tutte le prime posizioni
 	 * @param i	indice che discrimina quale linea ordinare
 	 */
-	private void orderLine(Dir top, int i) {
+	private void sortLine(Dir top, int i) {
 		if(top.equals("n"))
 			for(int j = 1; j < rows; j++) {
 				PuzzleItem item = puzzle[j][i];
