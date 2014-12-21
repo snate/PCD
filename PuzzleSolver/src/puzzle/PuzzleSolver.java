@@ -36,8 +36,10 @@ public class PuzzleSolver {
 		Path outputPath = Paths.get(pathOut);
 		if(!Test.checkIn(inputPath)) {				//controlla se l'input è ben-formato
 			System.out.println("Bad input file");
+			System.out.println("Stop");
 			return;									//termina, input non ben-formato
 		}
+		System.out.println("Go on");
 		Test.shuffle(inputPath);					//mescola
 		GruppoOrdinabile p = new Puzzle();			//crea un nuovo puzzle vuoto
 		p.fill(inputPath);							//preleva tutti i tasselli dal file di input

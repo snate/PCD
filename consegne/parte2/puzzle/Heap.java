@@ -22,8 +22,6 @@ public class Heap implements Gruppo {
 		Iterator<PuzzleItem> it = mucchio.iterator();
 		while(it.hasNext()){
 			PuzzleItem item = it.next();
-			System.out.println(item);
-			System.out.println(side + " - " + item.getAdjacent(side));
 			if(item.getAdjacent(side).equals("VUOTO")) x++;
 		}
 		return x;
@@ -36,7 +34,7 @@ public class Heap implements Gruppo {
 	 * @return	tassello con l'id ricercato
 	 */
 	@Override
-	public PuzzleItem getPiece(String id) {
+	public synchronized PuzzleItem getPiece(String id) {
 		Iterator<PuzzleItem> it = mucchio.iterator();
 		while(it.hasNext()) {
 			PuzzleItem item = it.next();
@@ -57,7 +55,7 @@ public class Heap implements Gruppo {
 	 * @return	tassello ricercato
 	 */
 	@Override
-	public PuzzleItem getEdgePiece(Dir edge, Dir refSide, String ref){
+	public synchronized PuzzleItem getEdgePiece(Dir edge, Dir refSide, String ref){
 		Iterator<PuzzleItem> it = mucchio.iterator();
 		while(it.hasNext()){
 			PuzzleItem item = it.next();
@@ -97,19 +95,17 @@ public class Heap implements Gruppo {
 	 */
 	private class Filler extends Thread {
 		private ArrayList<String> rows;
-		private int start;
-		private int end;
+		private final int start;
+		private final int end;
 		public Filler(ArrayList<String> rows, int a, int b) { this.rows = rows; start = a; end = b; }
 		public void run() {
-			if(end > rows.size()) end = rows.size();
-			for(int i = start; i < end; i++) {
+			int limit = end;
+			if(end > rows.size()) limit = rows.size();
+			for(int i = start; i < limit; i++) {
 				String line = rows.get(i);
 				String[] piece = line.split("\\t", -1);
 				PuzzleItem item = Puzzle.createPiece(piece);
-				synchronized (this) {
-					for(int j=0; j < piece.length; j++)
-						System.out.print(piece[j] + " - ");
-					System.out.println();
+				synchronized (mucchio) {
 					mucchio.add(item);
 				}
 			}

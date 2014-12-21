@@ -1,4 +1,5 @@
 package puzzle;
+import javax.sound.sampled.Line;
 import java.nio.file.Path;
 
 /**
@@ -37,9 +38,6 @@ public class Puzzle implements GruppoOrdinabile {
 			east = str[3];
 			south = str[4];
 			west = str[5];
-			for(int i=0; i < str.length; i++)
-				System.out.print(str[i] + " - ");
-			System.out.println();
 		}
 		/**
 		 * <p>Metodo che restituisce l'id dell'istanza del tassello.</p>
@@ -125,30 +123,33 @@ public class Puzzle implements GruppoOrdinabile {
 				edge = createDir("n");
 				limit = cols;
 			}
-		new FirstLineSorter(edge,limit).start();
+		EdgeSorter topEdge= new EdgeSorter(edge,limit);
+		topEdge.start();
+		LineSorter[] lines = new LineSorter[limit];
 		for(int i = 0; i < limit; i++) {
-				sortLine(edge, i);
+			lines[i] = new LineSorter(edge, i);
+			lines[i].start();
 		}
+		for(int i = 0; i < limit; i++)
+			try { lines[i].join(); } catch(InterruptedException ie) { System.out.println("Programma interrotto"); }
 	}
 
 	/**
 	 * <p>Classe che gestisce il flusso di controllo che colloca i tasselli sulla prima linea (riga o colonna, a seconda
 	 * delle dimensioni del puzzle).</p>
 	 */
-	private class FirstLineSorter extends Thread {
-		Dir edge;
-		int limit;
-		public FirstLineSorter(Dir edge, int limit) {
+	private class EdgeSorter extends Thread {
+		private Dir edge;
+		private int limit;
+		public EdgeSorter(Dir edge, int limit) {
 			this.edge = edge;
 			this.limit = limit;
 		}
 		public void run() {
+			String ref = "VUOTO";
 			for(int i = 0; i < limit; i++) {
-				String ref = "VUOTO";
 				PuzzleItem borderPiece;
-				synchronized (mucchio) {
-					borderPiece = mucchio.getEdgePiece(edge,edge.init(),ref);
-				}
+				borderPiece = mucchio.getEdgePiece(edge,edge.init(),ref);
 				setEdgePiece(i, borderPiece);
 				ref = borderPiece.getId();
 			}
@@ -159,38 +160,56 @@ public class Puzzle implements GruppoOrdinabile {
 		 * @param piece	tassello da collocare
 		 */
 		private void setEdgePiece(int position, PuzzleItem piece) {
-			if(edge.equals("n")) {
-				puzzle[0][position] = piece;
-				puzzle.notifyAll();
-			}
-			else {
-				puzzle[position][0] = piece;
-				puzzle.notifyAll();
+			if (edge.equals("n")) {
+				synchronized (puzzle) {
+					puzzle[0][position] = piece;
+					puzzle.notifyAll();
+				}
+			} else {
+				synchronized (puzzle) {
+					puzzle[position][0] = piece;
+					puzzle.notifyAll();
+				}
 			}
 		}
 	}
 
-	/**
-	 * <p>Metodo che ordina un'intera linea (riga o colonna a seconda del
-	 * lato top ordinato inizialmente) i-esima.</p>
-	 * @param top	lato del quale sono riempite tutte le prime posizioni
-	 * @param i	indice che discrimina quale linea ordinare
-	 */
-	private void sortLine(Dir top, int i) {
-		if(top.equals("n"))
-			for(int j = 1; j < rows; j++) {
-				PuzzleItem item = puzzle[j][i];
-				String prevId = item.getAdjacent(top.opposite());
-				PuzzleItem current = mucchio.getPiece(prevId);
-				puzzle[j][i] = current;
-			}
-		else
-			for(int j = 1; j < cols; j++) {
-				PuzzleItem item = puzzle[i][j-1];
-				String prevId = item.getAdjacent(top.opposite());
-				PuzzleItem current = mucchio.getPiece(prevId);
-				puzzle[i][j] = current;
-			}
+	private class LineSorter extends Thread {
+		private Dir top;
+		int line;
+
+		public LineSorter(Dir edge, int line) {
+			top = edge;
+			this.line = line;
+		}
+
+		/**
+		 * <p>Metodo che ordina un'intera linea (riga o colonna a seconda del
+		 * lato top ordinato inizialmente) i-esima.</p>
+		 */
+		public void run() {
+				if(top.equals("n")){
+					while(puzzle[0][line] == null)
+						try { puzzle.wait(); System.out.println("WAKE"); } catch(InterruptedException ie) {System.out.println("Programma interrotto");}
+					for(int j = 1; j < rows; j++) {
+						PuzzleItem item = puzzle[j-1][line];
+						String prevId = item.getAdjacent(top.opposite());
+						PuzzleItem current = mucchio.getPiece(prevId);
+						puzzle[j][line] = current;
+					}
+				}
+				else {
+					while(puzzle[line][0] == null)
+						try { puzzle.wait(); System.out.println("WAKE"); } catch(InterruptedException ie) {System.out.println("Programma interrotto");}
+					for(int j = 1; j < cols; j++) {
+						PuzzleItem item = puzzle[line][j-1];
+						String prevId = item.getAdjacent(top.opposite());
+						PuzzleItem current = mucchio.getPiece(prevId);
+						puzzle[line][j] = current;
+						System.out.println(current);
+					}
+				}
+		}
 	}
 
 	/**

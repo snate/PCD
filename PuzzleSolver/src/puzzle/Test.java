@@ -52,7 +52,7 @@ public class Test {
 		public int getTimes() { return times+1; }
 	};
 	private ArrayList<Pair> encountered = new ArrayList<Pair>();
-	private final static Path outcome = Paths.get("test");
+	private final static Path outcome = Paths.get("tasselli_test");
 
 	/**
 	 * <p>Metodo che costruisce un puzzle a partire da un testo scritto
@@ -236,16 +236,20 @@ public class Test {
 	}
 
 	public static void main(String[] args) {
+		System.out.println("Hello World");
+		/*
 		String pathIn = args[0]; 					//primo argomento passato alla consolle
 		String pathOut = args[1];					//secondo argomento passato alla consolle
 		Path inputPath = Paths.get(pathIn);
 		Path outputPath = Paths.get(pathOut);
 		Test test = new Test();
 		inputPath = test.build(inputPath);
+		System.out.println("Cominciamo");
 		PuzzleSolver.main(args);
 		if(test.checkOut(outputPath))
 			System.out.println("OK");
 		else
 			System.out.println("ERRORE");
+		*/
 	}
 }

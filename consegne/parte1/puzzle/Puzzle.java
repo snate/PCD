@@ -157,7 +157,7 @@ public class Puzzle implements GruppoOrdinabile {
 	private void orderLine(Dir top, int i) {
 		if(top.equals("n"))
 			for(int j = 1; j < rows; j++) {
-				PuzzleItem item = puzzle[j][i];
+				PuzzleItem item = puzzle[j-1][i];
 				String prevId = item.getAdjacent(top.opposite());
 				PuzzleItem current = mucchio.getPiece(prevId);
 				puzzle[j][i] = current;
