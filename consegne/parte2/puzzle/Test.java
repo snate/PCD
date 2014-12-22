@@ -49,10 +49,10 @@ public class Test {
 		 * un certo pair.</p>
 		 * @return	Il numero di occorrenze di letter incontrate finora
 		 */
-		public int getTimes() { return times+1; }
+		public int getTimes() { return times; }
 	};
 	private ArrayList<Pair> encountered = new ArrayList<Pair>();
-	private final static Path outcome = Paths.get("test");
+	private final static Path outcome = Paths.get("estrazioneTasselli");
 
 	/**
 	 * <p>Metodo che costruisce un puzzle a partire da un testo scritto
@@ -233,19 +233,5 @@ public class Test {
 		if(!confronto.equals(prodotto.get(3+rows))) //controlla terzo pezzo di output
 			corretto = false;
 		return corretto;
-	}
-
-	public static void main(String[] args) {
-		String pathIn = args[0]; 					//primo argomento passato alla consolle
-		String pathOut = args[1];					//secondo argomento passato alla consolle
-		Path inputPath = Paths.get(pathIn);
-		Path outputPath = Paths.get(pathOut);
-		Test test = new Test();
-		inputPath = test.build(inputPath);
-		PuzzleSolver.main(args);
-		if(test.checkOut(outputPath))
-			System.out.println("OK");
-		else
-			System.out.println("ERRORE");
 	}
 }

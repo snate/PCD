@@ -49,10 +49,10 @@ public class Test {
 		 * un certo pair.</p>
 		 * @return	Il numero di occorrenze di letter incontrate finora
 		 */
-		public int getTimes() { return times+1; }
+		public int getTimes() { return times; }
 	};
 	private ArrayList<Pair> encountered = new ArrayList<Pair>();
-	private final static Path outcome = Paths.get("tasselli_test");
+	private final static Path outcome = Paths.get("estrazioneTasselli");
 
 	/**
 	 * <p>Metodo che costruisce un puzzle a partire da un testo scritto
@@ -122,7 +122,7 @@ public class Test {
 				else
 					inputForMain += map[i+1][j] + "\t";
 				if(j == 0)
-					inputForMain += "VUOTO" + "\t";
+					inputForMain += "VUOTO";
 				else
 					inputForMain += map[i][j-1];
 				//questo controllo invece si preoccupa di non aggiungere il ritorno a capo
@@ -216,6 +216,7 @@ public class Test {
 	public boolean checkOut(Path outputPath) {
 		boolean corretto = true;
 		ArrayList<String> prodotto = InputOutput.readContent(outputPath);
+		if(prodotto.size() != 4+rows) return false;
 		String confronto;
 		if(!content.equals(prodotto.get(0)))		//controlla primo pezzo di output
 			corretto = false;
@@ -233,23 +234,5 @@ public class Test {
 		if(!confronto.equals(prodotto.get(3+rows))) //controlla terzo pezzo di output
 			corretto = false;
 		return corretto;
-	}
-
-	public static void main(String[] args) {
-		System.out.println("Hello World");
-		/*
-		String pathIn = args[0]; 					//primo argomento passato alla consolle
-		String pathOut = args[1];					//secondo argomento passato alla consolle
-		Path inputPath = Paths.get(pathIn);
-		Path outputPath = Paths.get(pathOut);
-		Test test = new Test();
-		inputPath = test.build(inputPath);
-		System.out.println("Cominciamo");
-		PuzzleSolver.main(args);
-		if(test.checkOut(outputPath))
-			System.out.println("OK");
-		else
-			System.out.println("ERRORE");
-		*/
 	}
 }

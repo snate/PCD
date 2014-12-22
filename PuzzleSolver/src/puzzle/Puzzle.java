@@ -190,7 +190,7 @@ public class Puzzle implements GruppoOrdinabile {
 		public void run() {
 				if(top.equals("n")){
 					while(puzzle[0][line] == null)
-						try { puzzle.wait(); System.out.println("WAKE"); } catch(InterruptedException ie) {System.out.println("Programma interrotto");}
+						try { puzzle.wait(); } catch(InterruptedException ie) {System.out.println("Programma interrotto");}
 					for(int j = 1; j < rows; j++) {
 						PuzzleItem item = puzzle[j-1][line];
 						String prevId = item.getAdjacent(top.opposite());
@@ -200,13 +200,12 @@ public class Puzzle implements GruppoOrdinabile {
 				}
 				else {
 					while(puzzle[line][0] == null)
-						try { puzzle.wait(); System.out.println("WAKE"); } catch(InterruptedException ie) {System.out.println("Programma interrotto");}
+						try { puzzle.wait(); } catch(InterruptedException ie) {System.out.println("Programma interrotto");}
 					for(int j = 1; j < cols; j++) {
 						PuzzleItem item = puzzle[line][j-1];
 						String prevId = item.getAdjacent(top.opposite());
 						PuzzleItem current = mucchio.getPiece(prevId);
 						puzzle[line][j] = current;
-						System.out.println(current);
 					}
 				}
 		}

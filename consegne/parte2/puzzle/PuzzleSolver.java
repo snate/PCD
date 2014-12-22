@@ -34,6 +34,7 @@ public class PuzzleSolver {
 		String pathOut = args[1];					//secondo argomento passato alla consolle
 		Path inputPath = Paths.get(pathIn);
 		Path outputPath = Paths.get(pathOut);
+		System.out.println(pathIn);
 		if(!Test.checkIn(inputPath)) {				//controlla se l'input è ben-formato
 			System.out.println("Bad input file");
 			return;									//termina, input non ben-formato

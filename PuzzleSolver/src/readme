@@ -1,0 +1,4 @@
+README
+tasselli.txt è il file di input contenente i tasselli
+output.txt è il file di output generato a partire da tasselli.txt
+input.txt è il file di input per il test che trasforma una riga in puzzle

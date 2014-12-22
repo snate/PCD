@@ -1,8 +1,10 @@
-ONEREPUBLIC_
+Ian Sommerville - Ingegneria del Software 
 
-O	N	E
-R	E	P
-U	B	L
-I	C	_
+I	a	n	 	S	o	m
+m	e	r	v	i	l	l
+e	 	-	 	I	n	g
+e	g	n	e	r	i	a
+ 	d	e	l	 	S	o
+f	t	w	a	r	e	 
 
-4 3
+6 7
