@@ -17,7 +17,7 @@ public class Heap implements Gruppo {
 	 * @return	numero di tasselli sul bordo side
 	 */
 	@Override
-	public int conta(Dir side) {
+	public synchronized int conta(Dir side) {
 		int x = 0;
 		Iterator<PuzzleItem> it = mucchio.iterator();
 		while(it.hasNext()){
@@ -118,7 +118,7 @@ public class Heap implements Gruppo {
 	 * <p>Metodo che informa se non vi è alcun tassello nel gruppo.</p>
 	 * @return	vero se non vi è alcun tassello nel gruppo, altrimenti falso
 	 */
-	public boolean isEmpty(){
+	public synchronized boolean isEmpty(){
 		return mucchio.isEmpty();
 	}
 }

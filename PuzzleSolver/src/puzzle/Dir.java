@@ -5,7 +5,7 @@ package puzzle;
  */
 public class Dir {
 	private static String[] DIR = {"n", "e", "w", "s"};
-	private String dir;
+	private final String dir;
 	/**
 	 * <p>Costruttore di Dir</p>
 	 * @param d	lettera che indica a quale punto cardinale corrisponde una certa istanza di Dir
