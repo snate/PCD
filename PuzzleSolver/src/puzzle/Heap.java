@@ -8,7 +8,7 @@ import java.util.Iterator;
  * @author svalle
  */
 public class Heap implements Gruppo {
-	private ArrayList<PuzzleItem> mucchio = new ArrayList<PuzzleItem>();
+	private ArrayList<PuzzleItem> mucchio = new ArrayList<>();
 
 	/**
 	 * <p>Il metodo conta restituisce quanti tasselli contiene il gruppo

@@ -4,7 +4,7 @@ package puzzle;
  * @author svalle
  */
 public class Dir {
-	private static String[] DIR = {"n", "e", "w", "s"};
+	private final static String[] DIR = {"n", "e", "w", "s"};
 	private final String dir;
 	/**
 	 * <p>Costruttore di Dir</p>
@@ -53,7 +53,7 @@ public class Dir {
 	 * @return	direzione di riferimento iniziale
 	 */
 	public Dir init() {
-		switch(dir.toString()) {
+		switch(dir) {
 			case "n":
 				return new Dir("w");
 			case "e":
@@ -71,7 +71,7 @@ public class Dir {
 	 * @return	istanza di Dir rappresentante il punto cardinale opposto
 	 */
 	public Dir opposite() {
-		switch(dir.toString()){
+		switch(dir){
 			case "n":
 				return new Dir("s");
 			case "e":

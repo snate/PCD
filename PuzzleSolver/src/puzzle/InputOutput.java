@@ -22,10 +22,10 @@ public class InputOutput { //visibilità package
 	 * @return	ArrayList di righe che compongono il file di input
 	 */
 	public static ArrayList<String> readContent(Path path){
-		ArrayList<String> content = new ArrayList<String>();
+		ArrayList<String> content = new ArrayList<>();
 		try (BufferedReader reader = Files.newBufferedReader(path,
 			charset)) {
-			String line = null;
+			String line;
 			while ((line = reader.readLine()) != null) {
 				content.add(line);
 			}

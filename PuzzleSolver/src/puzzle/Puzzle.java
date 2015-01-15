@@ -1,5 +1,4 @@
 package puzzle;
-import javax.sound.sampled.Line;
 import java.nio.file.Path;
 
 /**
@@ -139,8 +138,8 @@ public class Puzzle implements GruppoOrdinabile {
 	 * del lato edge specificato) line.</p>
 	 */
 	private class EdgeSorter extends Thread {
-		private Dir edge;
-		private int limit;
+		private final Dir edge;
+		private final int limit;
 
 		/**
 		 * <p>Costruttore della classe EdgeSorter.</p>
@@ -190,8 +189,8 @@ public class Puzzle implements GruppoOrdinabile {
 	 * seconda del lato edge specificato) line.</p>
 	 */
 	private class LineSorter extends Thread {
-		private Dir top;
-		int line;
+		private final Dir top;
+		final int line;
 
 		/**
 		 * <p>Costruttore della classe LineSorter.</p>
