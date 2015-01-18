@@ -12,7 +12,7 @@
     </option>
     <option name="_basePreferences">
       <map>
-        <entry key="property.analysisEffortLevel" value="default" />
+        <entry key="property.analysisEffortLevel" value="max" />
         <entry key="property.analyzeAfterCompile" value="false" />
         <entry key="property.annotationGutterIconEnabled" value="true" />
         <entry key="property.annotationSuppressWarningsClass" value="edu.umd.cs.findbugs.annotations.SuppressFBWarnings" />
@@ -120,7 +120,7 @@
         <entry key="InconsistentAnnotations" value="true" />
         <entry key="InefficientIndexOf" value="true" />
         <entry key="InefficientInitializationInsideLoop" value="true" />
-        <entry key="InefficientMemberAccess" value="false" />
+        <entry key="InefficientMemberAccess" value="true" />
         <entry key="InefficientToArray" value="true" />
         <entry key="InfiniteLoop" value="true" />
         <entry key="InfiniteRecursiveLoop" value="true" />

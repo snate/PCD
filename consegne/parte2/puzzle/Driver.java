@@ -1,6 +1,7 @@
 package puzzle;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Date;
 
 /**
  * @author svalle
@@ -15,11 +16,16 @@ public class Driver {
 		inputPath = test.build(inputPath);
         if(args.length > 0)
             args[0] = inputPath.toString();
-        System.out.println(inputPath.toString());
 		PuzzleSolver.main(args);
-		if(test.checkOut(outputPath))
+		Path log = Paths.get("log");
+		Date now = new Date();
+		if(test.checkOut(outputPath)) {
+			InputOutput.writeContent(log, "OK: " + now);
 			System.out.println("OK");
-		else
+		}
+		else {
+			InputOutput.writeContent(log, "ERRORE: " + now);
 			System.out.println("ERRORE");
+		}
     }
 }

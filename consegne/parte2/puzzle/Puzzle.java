@@ -1,5 +1,4 @@
 package puzzle;
-import javax.sound.sampled.Line;
 import java.nio.file.Path;
 
 /**
@@ -17,12 +16,12 @@ public class Puzzle implements GruppoOrdinabile {
 	 * <p>Classe che implementa un tassello del puzzle.</p>
 	 */
 	private static class Piece implements PuzzleItem {
-		private String id;
-		private String car;
-		private String north;
-		private String south;
-		private String east;
-		private String west;
+		private final String id;
+		private final String car;
+		private final String north;
+		private final String south;
+		private final String east;
+		private final String west;
 
 		/**
 		 * <p>Costruttore</p>
@@ -136,15 +135,26 @@ public class Puzzle implements GruppoOrdinabile {
 
 	/**
 	 * <p>Classe che gestisce il flusso di controllo che colloca i tasselli sulla prima linea (riga o colonna, a seconda
-	 * delle dimensioni del puzzle).</p>
+	 * del lato edge specificato) line.</p>
 	 */
 	private class EdgeSorter extends Thread {
-		private Dir edge;
-		private int limit;
+		private final Dir edge;
+		private final int limit;
+
+		/**
+		 * <p>Costruttore della classe EdgeSorter.</p>
+		 * @param edge lato di cui occorre collocare i tasselli
+		 * @param limit numero di tasselli da collocare
+		 */
 		public EdgeSorter(Dir edge, int limit) {
 			this.edge = edge;
 			this.limit = limit;
 		}
+
+		/**
+		 * <p>Metodo che viene invocato quando i thread della classe EdgeSorter vengono avviati.</p>
+		 * <p>Per ogni tassello del lato edge del puzzle, chiama il metodo SetEdgePiece per collocare il tassello.</p>
+		 */
 		public void run() {
 			String ref = "VUOTO";
 			for(int i = 0; i < limit; i++) {
@@ -161,23 +171,32 @@ public class Puzzle implements GruppoOrdinabile {
 		 */
 		private void setEdgePiece(int position, PuzzleItem piece) {
 			if (edge.equals("n")) {
-				synchronized (puzzle) {
 					puzzle[0][position] = piece;
+				synchronized (puzzle) {
 					puzzle.notifyAll();
 				}
 			} else {
-				synchronized (puzzle) {
 					puzzle[position][0] = piece;
+				synchronized (puzzle) {
 					puzzle.notifyAll();
 				}
 			}
 		}
 	}
 
+	/**
+	 * <p>Classe che gestisce il flusso di controllo che colloca i tasselli rimanenti sulla linea (riga o colonna, a
+	 * seconda del lato edge specificato) line.</p>
+	 */
 	private class LineSorter extends Thread {
-		private Dir top;
-		int line;
+		private final Dir top;
+		final int line;
 
+		/**
+		 * <p>Costruttore della classe LineSorter.</p>
+		 * @param edge lato dal quale partire per riempire la linea fino al lato opposto
+		 * @param line numero che identifica da quale tassello del lato edge partire per riempire la linea
+		 */
 		public LineSorter(Dir edge, int line) {
 			top = edge;
 			this.line = line;
@@ -189,8 +208,14 @@ public class Puzzle implements GruppoOrdinabile {
 		 */
 		public void run() {
 				if(top.equals("n")){
-					while(puzzle[0][line] == null)
-						try { puzzle.wait(); } catch(InterruptedException ie) {System.out.println("Programma interrotto");}
+					synchronized (puzzle) {
+						while (puzzle[0][line] == null)
+							try {
+								puzzle.wait();
+							} catch (InterruptedException ie) {
+								System.out.println("Programma interrotto");
+							}
+					}
 					for(int j = 1; j < rows; j++) {
 						PuzzleItem item = puzzle[j-1][line];
 						String prevId = item.getAdjacent(top.opposite());
@@ -199,8 +224,14 @@ public class Puzzle implements GruppoOrdinabile {
 					}
 				}
 				else {
-					while(puzzle[line][0] == null)
-						try { puzzle.wait(); } catch(InterruptedException ie) {System.out.println("Programma interrotto");}
+					synchronized (puzzle) {
+						while (puzzle[line][0] == null)
+							try {
+								puzzle.wait();
+							} catch (InterruptedException ie) {
+								System.out.println("Programma interrotto");
+							}
+					}
 					for(int j = 1; j < cols; j++) {
 						PuzzleItem item = puzzle[line][j-1];
 						String prevId = item.getAdjacent(top.opposite());
@@ -245,7 +276,7 @@ public class Puzzle implements GruppoOrdinabile {
 	 * @return	numero di righe o colonne
 	 */
 	@Override
-	public int conta(Dir side){
+	public synchronized int conta(Dir side){
 		if(side.equals("e")) return rows;
 		else return cols;
 	}
@@ -255,7 +286,7 @@ public class Puzzle implements GruppoOrdinabile {
 	 * @return	vero se non vi è alcun tassello, falso altrimenti
 	 */
 	@Override
-	public boolean isEmpty() {
+	public synchronized boolean isEmpty() {
 		boolean somethingPresent = false;
 		if(!mucchio.isEmpty()) somethingPresent = true;
 		for(int i = 0; i < rows; i++)
@@ -272,7 +303,7 @@ public class Puzzle implements GruppoOrdinabile {
 	 * @return	tassello corrispondente, se presente
 	 */
 	@Override
-	public PuzzleItem getPiece(String id) {
+	public synchronized PuzzleItem getPiece(String id) {
 		PuzzleItem piece = mucchio.getPiece(id);
 		if(piece != null) return piece;
 		for(int i = 0; i < rows; i++)
@@ -293,7 +324,7 @@ public class Puzzle implements GruppoOrdinabile {
 	 * @return	tassello sul bordo edge adiacente sul lato side ad un tassello con id ref
 	 */
 	@Override
-	public PuzzleItem getEdgePiece(Dir edge, Dir side, String ref) {
+	public synchronized PuzzleItem getEdgePiece(Dir edge, Dir side, String ref) {
 		PuzzleItem item = mucchio.getEdgePiece(edge, side, ref);
 		if(item != null)
 			return item;

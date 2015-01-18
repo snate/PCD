@@ -50,8 +50,8 @@ public class Test {
 		 * @return	Il numero di occorrenze di letter incontrate finora
 		 */
 		public int getTimes() { return times; }
-	};
-	private ArrayList<Pair> encountered = new ArrayList<Pair>();
+	}
+	private ArrayList<Pair> encountered = new ArrayList<>();
 	private final static Path outcome = Paths.get("estrazioneTasselli");
 
 	/**
@@ -68,7 +68,7 @@ public class Test {
 			content += " ";
 		String[] lines = new String[rows];
 		for(int i = 0; i < rows; i++) {
-			lines[i] = content.substring(0+cols*i, cols*(i+1));
+			lines[i] = content.substring(cols*i, cols*(i+1));
 		}
 		make(lines);
 		return outcome;
@@ -122,7 +122,7 @@ public class Test {
 				else
 					inputForMain += map[i+1][j] + "\t";
 				if(j == 0)
-					inputForMain += "VUOTO" + "\t";
+					inputForMain += "VUOTO";
 				else
 					inputForMain += map[i][j-1];
 				//questo controllo invece si preoccupa di non aggiungere il ritorno a capo
@@ -182,7 +182,7 @@ public class Test {
 	public static void shuffle(Path path) {
 		ArrayList<String> input = InputOutput.readContent(path);
 		int n = input.size();
-		ArrayList<String> shuffled = new ArrayList<String>();
+		ArrayList<String> shuffled = new ArrayList<>();
 		for(int i = 0; i < n; i++) {
 			int row = randInt(input.size());
 			String elem = input.get(row);
@@ -216,6 +216,7 @@ public class Test {
 	public boolean checkOut(Path outputPath) {
 		boolean corretto = true;
 		ArrayList<String> prodotto = InputOutput.readContent(outputPath);
+		if(prodotto.size() != 4+rows) return false;
 		String confronto;
 		if(!content.equals(prodotto.get(0)))		//controlla primo pezzo di output
 			corretto = false;
