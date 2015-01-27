@@ -16,7 +16,7 @@ public class Driver {
 		inputPath = test.build(inputPath);
         if(args.length > 0)
             args[0] = inputPath.toString();
-		PuzzleSolver.main(args);
+		PuzzleSolverServer.main(args);
 		Path log = Paths.get("log");
 		Date now = new Date();
 		if(test.checkOut(outputPath)) {
