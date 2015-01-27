@@ -8,7 +8,7 @@ import java.util.Iterator;
  * <p>Questa classe implementa un gruppo di tasselli possibilmente disordinati.</p>
  * @author svalle
  */
-public class Heap implements Gruppo, Remote {
+public class Heap implements Gruppo {
 	private ArrayList<PuzzleItem> mucchio = new ArrayList<>();
 
 	/**
