@@ -1,4 +1,0 @@
-#!/bin/bash
-make
-java srcpuzzle/PuzzleSolver "$1" "$2"
-make clean

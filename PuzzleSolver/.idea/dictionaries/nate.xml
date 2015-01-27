@@ -16,7 +16,9 @@
       <w>altrimenti</w>
       <w>anche</w>
       <w>argomento</w>
+      <w>assente</w>
       <w>assumerà</w>
+      <w>attesa</w>
       <w>attese</w>
       <w>atteso</w>
       <w>avendo</w>
@@ -45,6 +47,7 @@
       <w>colonne</w>
       <w>comodità</w>
       <w>compongono</w>
+      <w>comunicazione</w>
       <w>concorre</w>
       <w>confrontare</w>
       <w>confronto</w>
@@ -147,6 +150,7 @@
       <w>l'input</w>
       <w>l'insieme</w>
       <w>l'istanza</w>
+      <w>l'ordinamento</w>
       <w>l'output</w>
       <w>lato</w>
       <w>legge</w>
@@ -167,6 +171,7 @@
       <w>mucchio</w>
       <w>naturalmente</w>
       <w>nella</w>
+      <w>nomeserver</w>
       <w>nord</w>
       <w>numero</w>
       <w>nuova</w>
@@ -175,12 +180,14 @@
       <w>occorrenza</w>
       <w>occorrenze</w>
       <w>offre</w>
+      <w>oggetto</w>
       <w>ogni</w>
       <w>operazioni</w>
       <w>opposto</w>
       <w>ordina</w>
       <w>ordinabile</w>
       <w>ordinabili</w>
+      <w>ordinare</w>
       <w>ordinarli</w>
       <w>ordinata</w>
       <w>ordinato</w>
@@ -205,6 +212,7 @@
       <w>prima</w>
       <w>primo</w>
       <w>privato</w>
+      <w>problemi</w>
       <w>procede</w>
       <w>procedere</w>
       <w>procedura</w>
@@ -227,6 +235,7 @@
       <w>rappresentare</w>
       <w>rappresentata</w>
       <w>rappresentato</w>
+      <w>registrazione</w>
       <w>relativo</w>
       <w>restituisce</w>
       <w>ricercato</w>
@@ -245,6 +254,8 @@
       <w>risolutore</w>
       <w>rispetto</w>
       <w>ritorno</w>
+      <w>riuscita</w>
+      <w>riuscito</w>
       <w>rivolgersi</w>
       <w>salvati</w>
       <w>salvato</w>
@@ -286,10 +297,12 @@
       <w>tipo</w>
       <w>trasforma</w>
       <w>trova</w>
+      <w>trovato</w>
       <w>uguale</w>
       <w>ultima</w>
       <w>un'intera</w>
       <w>un'istanza</w>
+      <w>usato</w>
       <w>utilità</w>
       <w>utilizzata</w>
       <w>utilizzerà</w>
@@ -301,6 +314,7 @@
       <w>verificare</w>
       <w>verificato</w>
       <w>vero</w>
+      <w>verrà</w>
       <w>vicini</w>
       <w>vicino</w>
       <w>viene</w>
