@@ -29,13 +29,13 @@ public class RMIBinder {
             else
                 return Naming.lookup(query);
         } catch (NotBoundException ne) {
-            System.out.println("Nome assente nel registro RMI");
+            System.out.println("Nome assente nel registro RMI, prego riprovare tra qualche istante");
             throw new Exception();
         } catch (RemoteException re) {
             System.out.println("Errore durante la comunicazione con il registro RMI");
             throw new Exception();
         } catch (MalformedURLException me) {
-            System.out.println("URL non corretto");
+            System.out.println("Nome del server non corretto, prego inserire il nome corretto");
             throw new Exception();
         }
     }

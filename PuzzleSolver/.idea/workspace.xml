@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d55eed05-313a-4f2f-8b12-1aced1f06d8c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/puzzle/PuzzleSolverServer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/puzzle/RMIBinder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/puzzle/PuzzleSolver.java" afterPath="$PROJECT_DIR$/src/puzzle/PuzzleSolverClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/puzzle/Driver.java" afterPath="$PROJECT_DIR$/src/puzzle/Driver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/puzzle/Gruppo.java" afterPath="$PROJECT_DIR$/src/puzzle/Gruppo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/puzzle/GruppoOrdinabile.java" afterPath="$PROJECT_DIR$/src/puzzle/GruppoOrdinabile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/puzzle/Heap.java" afterPath="$PROJECT_DIR$/src/puzzle/Heap.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/puzzle/Puzzle.java" afterPath="$PROJECT_DIR$/src/puzzle/Puzzle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/makefile" afterPath="$PROJECT_DIR$/src/makefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/nate.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/nate.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tasselli.txt" afterPath="$PROJECT_DIR$/src/tasselli.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="d55eed05-313a-4f2f-8b12-1aced1f06d8c" name="Default" comment="" />
     <ignored path="PuzzleSolver.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -455,7 +442,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />

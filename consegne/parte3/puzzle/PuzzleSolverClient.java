@@ -33,28 +33,60 @@ public class PuzzleSolverClient {
         GruppoOrdinabile p = null;
         try { p = (GruppoOrdinabile) RMIBinder.richiedi(obj); }
         catch (Exception e) {
-            System.out.println("Risolutore non trovato");
+          System.out.println("Risolutore non trovato");
         }
+        int attempts = 0;
+        Thread[] attesa = new Thread[7];
+        for(int i = 0; i < 7; i++)
+          attesa[i] = new Thread() {
+            public void run() {
+              try { Thread.sleep(5000); } catch (InterruptedException ie) {}
+            }
+          };
+          boolean error = false;
         if(p!= null) {
+          while(attempts < 7) {
             try {
-                p.fill(rows);
-            }                            //preleva tutti i tasselli dal file di input
-            catch (RemoteException re) {
-                System.out.println("Errore di comunicazione durante il riempimento del puzzle");
-            }
-            try {
-                p.sort();
-            }                                //ordina il puzzle
-            catch (RemoteException re) {
-                System.out.println("Errore di comunicazione durante l'ordinamento del puzzle");
-            }
-            try {
-                InputOutput.writeContent(outputPath,p.outcome());   //scrivi l'output
+              p.fill(rows);     //preleva tutti i tasselli dal file di input
+              attempts = 7;
             }
             catch (RemoteException re) {
-                System.out.println("Errore di comunicazione durante il recupero del risultato");
+              System.out.println("Errore di comunicazione durante il riempimento del puzzle");
+              attempts++; attesa[attempts].start();
+            try { attesa[attempts].join(); } catch (InterruptedException ie) {}
+              if(attempts == 7) error = true;
             }
+          }
+          if(!error) attempts = 0;
+          while(attempts < 7) {
+            try {
+              p.sort();       //ordina il puzzle
+              attempts = 7;
+            }
+            catch (RemoteException re) {
+              System.out.println("Errore di comunicazione durante l'ordinamento del puzzle");
+              attempts++; attesa[attempts].start();
+              try { attesa[attempts].join(); } catch (InterruptedException ie) {}
+              if(attempts == 7) error = true;
+            }
+          }
+          if(!error) attempts = 0;
+          while(attempts < 7) {
+            try {
+              InputOutput.writeContent(outputPath,p.outcome());   //scrivi l'output
+              attempts = 7;
+            }
+            catch (RemoteException re) {
+              System.out.println("Errore di comunicazione durante il recupero del risultato");
+              attempts++; attesa[attempts].start();
+              try { attesa[attempts].join(); } catch (InterruptedException ie) {}
+              if(attempts == 7) error = true;
+            }
+          }
+          if(error)
+            System.out.println("A causa di errori di comunicazione, non e' stato possibile risolvere il puzzle");
         }
+        
     }
 
 }
